@@ -35,7 +35,7 @@
 /// Should be included as a class protected member
 ///
 #define VTK_SINGLETON_DECLARE(NAME)       \
-typedef NAME Self;                        \
+using Self = NAME;                        \
 static NAME* Instance;                    \
 static void classInitialize();            \
 static void classFinalize();              \
@@ -54,7 +54,7 @@ friend class NAME##Initialize;
 class EXPORT_DIRECTIVE NAME##Initialize                            \
 {                                                                  \
 public:                                                            \
-  typedef NAME##Initialize Self;                                   \
+  using Self = NAME##Initialize;                                   \
                                                                    \
   NAME##Initialize();                                              \
   ~NAME##Initialize();                                             \

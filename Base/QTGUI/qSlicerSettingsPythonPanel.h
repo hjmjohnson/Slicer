@@ -38,8 +38,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerSettingsPythonPanel
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerSettingsPythonPanel(QWidget* parent = nullptr);

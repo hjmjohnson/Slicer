@@ -42,8 +42,8 @@ class Q_SLICER_QTMODULES_VOLUMERENDERING_EXPORT qSlicerVolumeRenderingSettingsPa
   Q_PROPERTY(QString gpuMemory READ gpuMemory WRITE setGPUMemory NOTIFY gpuMemoryChanged)
 
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerVolumeRenderingSettingsPanel(QWidget* parent = nullptr);

@@ -38,7 +38,7 @@
 class qSlicerScriptedLoadableModuleWidgetPrivate
 {
 public:
-  typedef qSlicerScriptedLoadableModuleWidgetPrivate Self;
+  using Self = qSlicerScriptedLoadableModuleWidgetPrivate;
   qSlicerScriptedLoadableModuleWidgetPrivate();
   virtual ~qSlicerScriptedLoadableModuleWidgetPrivate();
 

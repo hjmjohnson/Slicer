@@ -45,8 +45,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerSettingsViewsPanel
   Q_PROPERTY(QString threeDOrientationMarkerSize READ threeDOrientationMarkerSize WRITE setThreeDOrientationMarkerSize NOTIFY currentThreeDOrientationMarkerSizeChanged)
   Q_PROPERTY(QString threeDRulerType READ threeDRulerType WRITE setThreeDRulerType NOTIFY currentThreeDRulerTypeChanged)
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerSettingsViewsPanel(QWidget* parent = nullptr);

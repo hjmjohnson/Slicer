@@ -40,7 +40,7 @@ class Q_SLICER_MODULE_SEQUENCES_WIDGETS_EXPORT qMRMLSequenceBrowserSeekWidget
   QVTK_OBJECT
 
 public:
-  typedef qMRMLWidget Superclass;
+  using Superclass = qMRMLWidget;
   qMRMLSequenceBrowserSeekWidget(QWidget *newParent = 0);
   virtual ~qMRMLSequenceBrowserSeekWidget();
 

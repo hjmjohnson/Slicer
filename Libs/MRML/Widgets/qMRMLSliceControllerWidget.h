@@ -62,8 +62,8 @@ class QMRML_WIDGETS_EXPORT qMRMLSliceControllerWidget
   Q_PROPERTY(bool moreButtonVisibility READ isMoreButtonVisible WRITE setMoreButtonVisible)
   Q_PROPERTY(QString sliceOrientation READ sliceOrientation WRITE setSliceOrientation)
 public:
-  /// Superclass typedef
-  typedef qMRMLViewControllerBar Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLViewControllerBar;
 
   /// Constructors
   explicit qMRMLSliceControllerWidget(QWidget* parent = nullptr);

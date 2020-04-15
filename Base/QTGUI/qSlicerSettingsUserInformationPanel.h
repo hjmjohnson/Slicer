@@ -29,8 +29,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerSettingsUserInformationPanel
   Q_OBJECT
   QVTK_OBJECT
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerSettingsUserInformationPanel(QWidget* parent = nullptr);

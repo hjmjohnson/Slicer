@@ -54,14 +54,14 @@ public:
 protected:
 
   /// To/from ITK
-  typedef itk::Vector<float,2> InputImagePixelType;
-  typedef itk::Vector<float,2> OutputImagePixelType;
+  using InputImagePixelType = itk::Vector<float,2>;
+  using OutputImagePixelType = itk::Vector<float,2>;
   typedef itk::Image<InputImagePixelType, 3> InputImageType;
   typedef itk::Image<OutputImagePixelType, 3> OutputImageType;
 
   typedef itk::Image<float, 3> JoinImageType;
-  typedef itk::VTKImageImport<JoinImageType> ImageImportType;
-  typedef itk::VTKImageExport<JoinImageType> ImageExportType;
+  using ImageImportType = itk::VTKImageImport<JoinImageType>;
+  using ImageExportType = itk::VTKImageExport<JoinImageType>;
   ImageImportType::Pointer itkImporter;
   ImageExportType::Pointer itkExporter;
   ImageImportType::Pointer itkImporter1;
@@ -71,7 +71,7 @@ protected:
 
   typedef itk::SplitImageFilter<OutputImageType, JoinImageType> SplitFilterType;
 
-  typedef itk::ImageToImageFilter<InputImageType,OutputImageType> GenericFilterType;
+  using GenericFilterType = itk::ImageToImageFilter<InputImageType,OutputImageType>;
   GenericFilterType::Pointer m_Filter;
 
   vtkImageImport* vtkImporter1;

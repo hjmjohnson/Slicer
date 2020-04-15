@@ -44,8 +44,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerModulesListView : public QListView
              WRITE setUncheckedModules NOTIFY uncheckedModulesChanged
              DESIGNABLE false)
 public:
-  /// Superclass typedef
-  typedef QListView Superclass;
+  /// Superclass type alias
+  using Superclass = QListView;
 
   /// Constructor
   explicit qSlicerModulesListView(QWidget* parent = nullptr);

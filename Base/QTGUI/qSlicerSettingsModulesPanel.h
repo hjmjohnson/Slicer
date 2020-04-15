@@ -50,8 +50,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerSettingsModulesPanel
              NOTIFY modulesToAlwaysIgnoreChanged)
 
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerSettingsModulesPanel(QWidget* parent = nullptr);

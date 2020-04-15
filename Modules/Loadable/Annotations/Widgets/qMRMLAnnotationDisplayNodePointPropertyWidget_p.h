@@ -29,7 +29,7 @@ protected:
 public:
 
   qMRMLAnnotationDisplayNodePointPropertyWidgetPrivate(qMRMLAnnotationDisplayNodePointPropertyWidget& object);
-  typedef qMRMLAnnotationDisplayNodePointPropertyWidgetPrivate Self;
+  using Self = qMRMLAnnotationDisplayNodePointPropertyWidgetPrivate;
   void setupUi(qMRMLAnnotationDisplayNodePropertyWidget * widget);
 
 };

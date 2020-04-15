@@ -46,8 +46,8 @@ class QMRML_WIDGETS_EXPORT qMRMLPlotView : public ctkVTKChartView
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef ctkVTKChartView Superclass;
+  /// Superclass type alias
+  using Superclass = ctkVTKChartView;
 
   /// Constructors
   explicit qMRMLPlotView(QWidget* parent = nullptr);

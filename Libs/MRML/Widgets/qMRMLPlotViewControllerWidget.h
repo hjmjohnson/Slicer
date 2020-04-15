@@ -43,8 +43,8 @@ class QMRML_WIDGETS_EXPORT qMRMLPlotViewControllerWidget
   QVTK_OBJECT
 
 public:
-  /// Superclass typedef
-  typedef qMRMLViewControllerBar Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLViewControllerBar;
 
   /// Constructors
   explicit qMRMLPlotViewControllerWidget(QWidget* parent = nullptr);

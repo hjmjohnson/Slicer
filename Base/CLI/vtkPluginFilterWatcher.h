@@ -32,7 +32,7 @@
  *
  * Example of use:
  *
- * typedef vtk::BinaryThresholdImageFilter<ImageType> FilterType;
+ * using FilterType = vtk::BinaryThresholdImageFilter<ImageType>;
  * FilterType::Pointer thresholdFilter = FilterType::New();
  *
  * vtkPluginFilterWatcher watcher(thresholdFilter, "Threshold");

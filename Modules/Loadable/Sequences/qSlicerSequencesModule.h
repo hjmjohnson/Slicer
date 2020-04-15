@@ -54,7 +54,7 @@ qSlicerSequencesModule
 
 public:
 
-  typedef qSlicerLoadableModule Superclass;
+  using Superclass = qSlicerLoadableModule;
   explicit qSlicerSequencesModule(QObject *parent=0);
   virtual ~qSlicerSequencesModule();
 

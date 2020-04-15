@@ -33,7 +33,7 @@
 class qSlicerScriptedFileDialogPrivate
 {
 public:
-  typedef qSlicerScriptedFileDialogPrivate Self;
+  using Self = qSlicerScriptedFileDialogPrivate;
   qSlicerScriptedFileDialogPrivate();
   virtual ~qSlicerScriptedFileDialogPrivate();
 

@@ -91,8 +91,8 @@ class QMRML_WIDGETS_EXPORT qMRMLLayoutManager : public ctkLayoutFactory
   Q_PROPERTY(int plotViewCount READ plotViewCount DESIGNABLE false)
 
 public:
-  /// Superclass typedef
-  typedef ctkLayoutFactory Superclass;
+  /// Superclass type alias
+  using Superclass = ctkLayoutFactory;
 
   /// Constructors
   explicit qMRMLLayoutManager(QObject* parent=nullptr);

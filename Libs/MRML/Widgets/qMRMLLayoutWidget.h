@@ -38,8 +38,8 @@ class QMRML_WIDGETS_EXPORT qMRMLLayoutWidget : public QWidget
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef QWidget Superclass;
+  /// Superclass type alias
+  using Superclass = QWidget;
 
   /// Constructors
   explicit qMRMLLayoutWidget(QWidget* widget);

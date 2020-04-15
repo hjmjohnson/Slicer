@@ -37,7 +37,7 @@
 class qSlicerScriptedFileWriterPrivate
 {
 public:
-  typedef qSlicerScriptedFileWriterPrivate Self;
+  using Self = qSlicerScriptedFileWriterPrivate;
   qSlicerScriptedFileWriterPrivate();
   virtual ~qSlicerScriptedFileWriterPrivate();
 

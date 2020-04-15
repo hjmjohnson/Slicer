@@ -24,7 +24,7 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerPythonManager : public qSlicerCorePython
   Q_OBJECT
 
 public:
-  typedef qSlicerCorePythonManager Superclass;
+  using Superclass = qSlicerCorePythonManager;
   qSlicerPythonManager(QObject* parent=nullptr);
   ~qSlicerPythonManager() override;
 

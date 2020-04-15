@@ -64,7 +64,7 @@ class Q_SLICER_MODULE_DICOMLIB_WIDGETS_EXPORT qSlicerDICOMLoadable : public QObj
   Q_PROPERTY(QStringList referencedInstanceUIDs READ referencedInstanceUIDs WRITE setReferencedInstanceUIDs)
 
 public:
-  typedef QObject Superclass;
+  using Superclass = QObject;
   qSlicerDICOMLoadable(QObject *parent = nullptr);
   ~qSlicerDICOMLoadable() override;
 

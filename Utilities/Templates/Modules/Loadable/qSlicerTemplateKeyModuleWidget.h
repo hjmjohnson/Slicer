@@ -34,7 +34,7 @@ class Q_SLICER_QTMODULES_TEMPLATEKEY_EXPORT qSlicerTemplateKeyModuleWidget :
 
 public:
 
-  typedef qSlicerAbstractModuleWidget Superclass;
+  using Superclass = qSlicerAbstractModuleWidget;
   qSlicerTemplateKeyModuleWidget(QWidget *parent=0);
   virtual ~qSlicerTemplateKeyModuleWidget();
 

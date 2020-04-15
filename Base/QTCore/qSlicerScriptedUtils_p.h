@@ -51,7 +51,7 @@ class Q_SLICER_BASE_QTCORE_EXPORT qSlicerScriptedUtils
 {
 
 public:
-  typedef qSlicerScriptedUtils Self;
+  using Self = qSlicerScriptedUtils;
 
   static bool loadSourceAsModule(const QString& moduleName, const QString& fileName, PyObject * global_dict, PyObject *local_dict);
 

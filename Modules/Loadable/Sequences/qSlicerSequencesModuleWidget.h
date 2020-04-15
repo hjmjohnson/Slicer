@@ -38,7 +38,7 @@ class Q_SLICER_QTMODULES_SEQUENCES_EXPORT qSlicerSequencesModuleWidget :
 
 public:
 
-  typedef qSlicerAbstractModuleWidget Superclass;
+  using Superclass = qSlicerAbstractModuleWidget;
   qSlicerSequencesModuleWidget(QWidget *parent=0);
   virtual ~qSlicerSequencesModuleWidget();
 

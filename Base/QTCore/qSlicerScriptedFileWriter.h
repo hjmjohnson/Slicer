@@ -38,7 +38,7 @@ class Q_SLICER_BASE_QTCORE_EXPORT qSlicerScriptedFileWriter
   Q_OBJECT
 
 public:
-  typedef qSlicerFileWriter Superclass;
+  using Superclass = qSlicerFileWriter;
   qSlicerScriptedFileWriter(QObject* parent = nullptr);
   ~qSlicerScriptedFileWriter() override;
 

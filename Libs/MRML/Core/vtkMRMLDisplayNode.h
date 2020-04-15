@@ -42,19 +42,23 @@ public:
 
   /// Representation models
   /// \sa GetRepresentation(), SetRepresentation()
-  typedef enum {
+  enum RepresentationType_t
+  {
     PointsRepresentation = 0,
     WireframeRepresentation,
     SurfaceRepresentation
-  } RepresentationType;
+  };
+  using RepresentationType = enum RepresentationType_t;
 
   /// Interpolation models
   /// \sa GetInterpolation(), SetInterpolation()
-  typedef enum {
+  enum InterpolationType_t
+  {
     FlatInterpolation = 0,
     GouraudInterpolation,
     PhongInterpolation
-  } InterpolationType;
+  };
+  using InterpolationType = enum InterpolationType_t;
 
   /// Scalar range options for displaying data associated with this display
   /// node, this setting determines if the display node, color node, or ?
@@ -68,7 +72,8 @@ public:
   /// UseManualScalarRange - use user defined values
   /// \sa ScalarRangeFlag, GetScalarRangeFlag(), SetScalarRangeFlag(),
   /// SetScalarRange(), GetScalarRange(), GetScalarRangeFlagTypeAsString()
-  typedef enum {
+  enum ScalarRangeFlagType_t
+  {
     UseManualScalarRange = 0,
     UseDataScalarRange,
     UseColorNodeScalarRange,
@@ -76,13 +81,12 @@ public:
     UseDirectMapping,
     // insert types above this line
     NUM_SCALAR_RANGE_FLAGS
-  } ScalarRangeFlagType;
+  };
+  using ScalarRangeFlagType = enum ScalarRangeFlagType_t;
 
-  enum
-    {
-    MenuEvent = 16100, /**< display of context menu is requested (mapped to right-click by default),
-                       event data is vtkMRMLInteractionEventData */
-    };
+  /**< display of context menu is requested (mapped to right-click by default),
+       event data is vtkMRMLInteractionEventData */
+  static constexpr unsigned int MenuEvent = 16100;
 
   /// Convert between scalar range flag type id and string
   /// \sa ScalarRangeFlag

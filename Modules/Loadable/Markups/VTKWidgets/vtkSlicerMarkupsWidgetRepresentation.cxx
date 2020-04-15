@@ -427,7 +427,7 @@ void vtkSlicerMarkupsWidgetRepresentation::SetMarkupsNode(vtkMRMLMarkupsNode *ma
 void vtkSlicerMarkupsWidgetRepresentation::PrintSelf(ostream& os,
                                                       vtkIndent indent)
 {
-  //Superclass typedef defined in vtkTypeMacro() found in vtkSetGet.h
+  //Superclass type alias defined in vtkTypeMacro() found in vtkSetGet.h
   this->Superclass::PrintSelf(os, indent);
   os << indent << "Point Placer: " << this->PointPlacer << "\n";
 }

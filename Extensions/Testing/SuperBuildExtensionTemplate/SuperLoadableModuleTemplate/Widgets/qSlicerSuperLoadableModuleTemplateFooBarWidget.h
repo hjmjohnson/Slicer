@@ -35,7 +35,7 @@ class Q_SLICER_MODULE_SUPERLOADABLEMODULETEMPLATE_WIDGETS_EXPORT qSlicerSuperLoa
 {
   Q_OBJECT
 public:
-  typedef QWidget Superclass;
+  using Superclass = QWidget;
   qSlicerSuperLoadableModuleTemplateFooBarWidget(QWidget *parent=0);
   virtual ~qSlicerSuperLoadableModuleTemplateFooBarWidget();
 

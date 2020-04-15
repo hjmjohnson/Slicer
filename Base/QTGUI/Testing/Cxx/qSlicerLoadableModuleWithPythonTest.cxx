@@ -31,7 +31,7 @@ class qSlicerLoadableHelloWorldModule : public qSlicerLoadableModule
   Q_OBJECT
 public:
 
-  typedef qSlicerLoadableModule Superclass;
+  using Superclass = qSlicerLoadableModule;
   qSlicerLoadableHelloWorldModule(QObject *parent=nullptr):Superclass(parent){}
   ~qSlicerLoadableHelloWorldModule() override = default;
 

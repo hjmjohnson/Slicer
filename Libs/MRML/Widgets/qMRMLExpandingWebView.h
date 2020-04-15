@@ -36,8 +36,8 @@ class QMRML_WIDGETS_EXPORT qMRMLExpandingWebView :
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef QWebEngineView Superclass;
+  /// Superclass type alias
+  using Superclass = QWebEngineView;
 
   /// Constructors
   explicit qMRMLExpandingWebView(QWidget* parent = nullptr);

@@ -40,8 +40,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerExtensionsInstallWidget
   Q_PROPERTY(QString slicerArch READ slicerArch WRITE setSlicerArch)
   Q_PROPERTY(bool browsingEnabled READ isBrowsingEnabled WRITE setBrowsingEnabled)
 public:
-  /// Superclass typedef
-  typedef qSlicerWebWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qSlicerWebWidget;
 
   /// Constructor
   explicit qSlicerExtensionsInstallWidget(QWidget* parent = nullptr);

@@ -43,7 +43,7 @@ public:
   Q_OBJECT
 
 public:
-  typedef qSlicerSubjectHierarchyFolderPlugin Superclass;
+  using Superclass = qSlicerSubjectHierarchyFolderPlugin;
   qSlicerSubjectHierarchyDICOMPlugin(QObject* parent = nullptr);
   ~qSlicerSubjectHierarchyDICOMPlugin() override;
 

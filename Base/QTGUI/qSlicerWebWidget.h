@@ -50,8 +50,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerWebWidget
   Q_PROPERTY(QString url READ url WRITE setUrl)
   friend class qSlicerWebEnginePage;
 public:
-  /// Superclass typedef
-  typedef QWidget Superclass;
+  /// Superclass type alias
+  using Superclass = QWidget;
 
   /// Constructor
   explicit qSlicerWebWidget(QWidget* parent = nullptr);

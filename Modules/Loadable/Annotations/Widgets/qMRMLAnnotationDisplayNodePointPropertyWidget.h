@@ -22,7 +22,7 @@ class Q_SLICER_MODULE_ANNOTATIONS_WIDGETS_EXPORT qMRMLAnnotationDisplayNodePoint
 
 public:
 
-  typedef qMRMLAnnotationDisplayNodePropertyWidget Superclass;
+  using Superclass = qMRMLAnnotationDisplayNodePropertyWidget;
   explicit qMRMLAnnotationDisplayNodePointPropertyWidget(QWidget *newParent = 0);
   virtual ~qMRMLAnnotationDisplayNodePointPropertyWidget();
 
@@ -42,7 +42,7 @@ protected:
 private:
   Q_DECLARE_PRIVATE(qMRMLAnnotationDisplayNodePointPropertyWidget);
   Q_DISABLE_COPY(qMRMLAnnotationDisplayNodePointPropertyWidget);
-  typedef qMRMLAnnotationDisplayNodePointPropertyWidgetPrivate ctkPimpl;
+  using ctkPimpl = qMRMLAnnotationDisplayNodePointPropertyWidgetPrivate;
   bool updating;
 
 };

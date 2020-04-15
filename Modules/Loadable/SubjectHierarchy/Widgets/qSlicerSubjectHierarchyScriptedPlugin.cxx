@@ -44,7 +44,7 @@
 class qSlicerSubjectHierarchyScriptedPluginPrivate
 {
 public:
-  typedef qSlicerSubjectHierarchyScriptedPluginPrivate Self;
+  using Self = qSlicerSubjectHierarchyScriptedPluginPrivate;
   qSlicerSubjectHierarchyScriptedPluginPrivate();
   virtual ~qSlicerSubjectHierarchyScriptedPluginPrivate();
 

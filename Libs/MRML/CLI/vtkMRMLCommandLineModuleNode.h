@@ -47,7 +47,8 @@ public:
     {return "CommandLineModule";}
 
   /// List of events that can be fired on or by the node.
-  enum CLINodeEvent{
+  enum CLINodeEvent_t
+  {
     /// Event invoked anytime a parameter value is changed.
     /// \sa InputParameterModifiedEvent, SetParameterAsString(),
     /// SetParameterAsNode(), SetParameterAsInt(), SetParameterAsBool(),
@@ -65,6 +66,7 @@ public:
     /// Event invoked when the CLI changes of status
     StatusModifiedEvent
   };
+  using CLINodeEvent = enum CLINodeEvent_t;
 
   /// Get/Set the module description object. THe module description
   /// object is used to cache the current settings for the module.
@@ -73,7 +75,8 @@ public:
   std::string GetModuleDescriptionAsString() const;
   void SetModuleDescription(const ModuleDescription& description);
 
-  typedef enum {
+  enum StatusType_t
+  {
     /// Initial state of the CLI.
     Idle=0x00,
     /// State when the CLI has been requested to be executed.
@@ -98,7 +101,8 @@ public:
     CompletedWithErrors= Completed | ErrorsMask,
     /// Mask used to know if the CLI is in pending mode.
     BusyMask = Scheduled | Running | Cancelling | Completing
-  } StatusType;
+  };
+  using StatusType = enum StatusType_t;
 
   /// Set the status of the node (Idle, Scheduled, Running,
   /// Completed).  The "modify" parameter indicates whether the object

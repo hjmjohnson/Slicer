@@ -524,7 +524,7 @@ int itkAnisotropicSimilarity3DTransformTest(int, char * [] )
     bool         Ok;
     unsigned int par;
 
-    typedef TransformType::MatrixType MatrixType;
+    using MatrixType = TransformType::MatrixType;
     MatrixType matrix;
 
     TransformType::Pointer t = TransformType::New();
@@ -607,7 +607,7 @@ int itkAnisotropicSimilarity3DTransformTest(int, char * [] )
     center[1] = 16.0;
     center[2] = 17.0;
 
-    typedef TransformType::ParametersType ParametersType;
+    using ParametersType = TransformType::ParametersType;
     ParametersType e( t->GetNumberOfParameters() );
     e.Fill( 0.0 );
     e[2] = sin(0.5 * a);

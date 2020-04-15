@@ -47,8 +47,8 @@ class QMRML_WIDGETS_EXPORT qMRMLTableWidget : public qMRMLWidget
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLTableWidget(QWidget* parent = nullptr);

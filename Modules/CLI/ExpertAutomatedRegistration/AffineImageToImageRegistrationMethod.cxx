@@ -44,7 +44,7 @@ void GetImageType(std::string fileName,
 template <unsigned int DimensionsT>
 int DoIt( MetaCommand & command )
 {
-  typedef short PixelType;
+  using PixelType = short;
 
   typedef itk::Image<PixelType, DimensionsT>
   ImageType;

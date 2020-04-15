@@ -36,7 +36,7 @@ qSlicerLoadableModuleTemplateModule
 
 public:
 
-  typedef qSlicerLoadableModule Superclass;
+  using Superclass = qSlicerLoadableModule;
   explicit qSlicerLoadableModuleTemplateModule(QObject *parent=0);
   virtual ~qSlicerLoadableModuleTemplateModule();
 

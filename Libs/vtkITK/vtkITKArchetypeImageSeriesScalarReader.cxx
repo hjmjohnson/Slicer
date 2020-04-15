@@ -92,7 +92,7 @@ int vtkITKArchetypeImageSeriesScalarReader::RequestData(
 
 #ifdef VTKITK_BUILD_DICOM_SUPPORT
 #define vtkITKExecuteDataDeclareDICOMImageIO \
-      typedef itk::ImageIOBase ImageIOType; \
+      using ImageIOType = itk::ImageIOBase; \
       ImageIOType::Pointer imageIO; \
       if (this->DICOMImageIOApproach == vtkITKArchetypeImageSeriesReader::GDCM) \
         { \
@@ -110,7 +110,7 @@ int vtkITKArchetypeImageSeriesScalarReader::RequestData(
         }
 #else
 #define vtkITKExecuteDataDeclareDICOMImageIO \
-  typedef itk::ImageIOBase ImageIOType; \
+  using ImageIOType = itk::ImageIOBase; \
   ImageIOType::Pointer imageIO;
 #endif
 
@@ -118,8 +118,8 @@ int vtkITKArchetypeImageSeriesScalarReader::RequestData(
 #define vtkITKExecuteDataFromSeries(typeN, type) \
     case typeN: \
     {\
-      typedef itk::Image<type,3> image##typeN;\
-      typedef itk::ImageSource<image##typeN> FilterType; \
+      using image##typeN = itk::Image<type,3>;\
+      using FilterType = itk::ImageSource<image##typeN>; \
       FilterType::Pointer filter; \
       itk::ImageSeriesReader<image##typeN>::Pointer reader##typeN = \
         itk::ImageSeriesReader<image##typeN>::New(); \
@@ -162,8 +162,8 @@ int vtkITKArchetypeImageSeriesScalarReader::RequestData(
 #define vtkITKExecuteDataFromFile(typeN, type) \
     case typeN: \
     {\
-      typedef itk::Image<type,3> image2##typeN;\
-      typedef itk::ImageSource<image2##typeN> FilterType; \
+      using image2##typeN = itk::Image<type,3>;\
+      using FilterType = itk::ImageSource<image2##typeN>; \
       FilterType::Pointer filter; \
       itk::ImageFileReader<image2##typeN>::Pointer reader2##typeN = \
             itk::ImageFileReader<image2##typeN>::New(); \

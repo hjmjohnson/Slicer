@@ -19,8 +19,8 @@ int DoIt( int argc, char * argv[], TPixel )
 {
   PARSE_ARGS;
 
-  typedef TPixel InputPixelType;
-  typedef TPixel OutputPixelType;
+  using InputPixelType = TPixel;
+  using OutputPixelType = TPixel;
 
   const unsigned int Dimension = 3;
 

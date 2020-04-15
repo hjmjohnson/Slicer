@@ -96,13 +96,11 @@ class DiffusionTensor3DZeroCorrectionFilter :
                             typename TOutputImage::PixelType::ComponentType> >
 {
 public:
-  /** Standard class typedefs. */
-  typedef DiffusionTensor3DZeroCorrectionFilter Self;
-  typedef UnaryFunctorImageFilter<TInputImage, TOutputImage,
-                                  Functor::DiffusionTensor3DZero<typename TInputImage::PixelType,
-                                                                 typename TOutputImage::PixelType> >  Superclass;
-  typedef SmartPointer<Self>       Pointer;
-  typedef SmartPointer<const Self> ConstPointer;
+  /** Standard class type aliases. */
+  using Self = DiffusionTensor3DZeroCorrectionFilter<TInputImage, TOutputImage>;
+  using Superclass = UnaryFunctorImageFilter<TInputImage, TOutputImage, Functor::DiffusionTensor3DZero<typename TInputImage::PixelType, typename TOutputImage::PixelType> >;
+  using Pointer = SmartPointer<Self>;
+  using ConstPointer = SmartPointer<const Self>;
 
   /** Explicitly deleted functions belong in the public interface */
   DiffusionTensor3DZeroCorrectionFilter( const Self & ) = delete;

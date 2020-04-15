@@ -45,8 +45,8 @@ class QMRML_WIDGETS_EXPORT qMRMLPlotWidget : public qMRMLWidget
   Q_OBJECT
   Q_PROPERTY(QString viewLabel READ viewLabel WRITE setViewLabel)
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLPlotWidget(QWidget* parent = nullptr);

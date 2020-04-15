@@ -43,8 +43,8 @@ class QMRML_WIDGETS_EXPORT qMRMLDisplayNodeViewComboBox
   Q_OBJECT
   QVTK_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLCheckableNodeComboBox Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLCheckableNodeComboBox;
 
   /// Construct an empty qMRMLDisplayNodeViewComboBox with a null scene,
   /// no nodeType, where the hidden nodes are not forced on display.

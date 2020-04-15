@@ -49,7 +49,7 @@ class Q_SLICER_SEGMENTATIONS_EFFECTS_EXPORT qSlicerSegmentEditorScriptedEffect
   Q_OBJECT
 
 public:
-  typedef qSlicerSegmentEditorAbstractEffect Superclass;
+  using Superclass = qSlicerSegmentEditorAbstractEffect;
   qSlicerSegmentEditorScriptedEffect(QObject* parent = nullptr);
   ~qSlicerSegmentEditorScriptedEffect() override;
 

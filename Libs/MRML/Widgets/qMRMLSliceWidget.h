@@ -55,8 +55,8 @@ class QMRML_WIDGETS_EXPORT qMRMLSliceWidget : public qMRMLWidget
   Q_PROPERTY(QColor sliceViewColor READ sliceViewColor WRITE setSliceViewColor)
 
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLSliceWidget(QWidget* parent = nullptr);

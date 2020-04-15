@@ -43,7 +43,7 @@ public:
   Q_OBJECT
 
 public:
-  typedef QObject Superclass;
+  using Superclass = QObject;
   qSlicerDICOMExportDialog(QObject* parent = nullptr);
   ~qSlicerDICOMExportDialog() override;
 

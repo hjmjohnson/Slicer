@@ -361,7 +361,7 @@ void vtkSlicerAngleRepresentation3D::CanInteract(
 //-----------------------------------------------------------------------------
 void vtkSlicerAngleRepresentation3D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  //Superclass typedef defined in vtkTypeMacro() found in vtkSetGet.h
+  //Superclass type alias defined in vtkTypeMacro() found in vtkSetGet.h
   this->Superclass::PrintSelf(os, indent);
 
   if (this->LineActor)

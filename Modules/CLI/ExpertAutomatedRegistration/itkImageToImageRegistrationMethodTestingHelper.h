@@ -36,8 +36,8 @@ class ImageToImageRegistrationMethodTestingHelper
   typedef typename RegistrationMethodType::ImageType ImageType;
   typedef typename RegistrationMethodType::Pointer   RegistrationMethodPointer;
 
-  typedef itk::ImageFileReader<ImageType> ImageReaderType;
-  typedef itk::ImageFileWriter<ImageType> ImageWriterType;
+  using ImageReaderType = itk::ImageFileReader<ImageType>;
+  using ImageWriterType = itk::ImageFileWriter<ImageType>;
 
   typedef typename ImageReaderType::Pointer ImageReaderPointer;
   typedef typename ImageWriterType::Pointer ImageWriterPointer;

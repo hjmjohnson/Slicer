@@ -940,7 +940,7 @@ CSFLSSegmentor3D<TPixel>
 
 //   //debug//
 //   //  std::cout<<"[m_nx, m_ny, m_nz] = "<<"[ "<<m_nx<<", "<<m_ny<<", "<<m_nz<<"]\n";
-//   typedef itk::ImageRegionIteratorWithIndex<MaskImageType> TImageRegionIteratorWithIndex;
+//   using TImageRegionIteratorWithIndex = itk::ImageRegionIteratorWithIndex<MaskImageType>;
 //   TImageRegionIteratorWithIndex it(mp_mask, mp_mask->GetLargestPossibleRegion() );
 //   it.GoToBegin();
 //   std::cout<<it.GetIndex()<<std::endl;

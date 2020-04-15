@@ -833,7 +833,7 @@ double *vtkSlicerMarkupsWidgetRepresentation3D::GetBounds()
 void vtkSlicerMarkupsWidgetRepresentation3D::PrintSelf(ostream& os,
                                                       vtkIndent indent)
 {
-  //Superclass typedef defined in vtkTypeMacro() found in vtkSetGet.h
+  //Superclass type alias defined in vtkTypeMacro() found in vtkSetGet.h
   this->Superclass::PrintSelf(os, indent);
 
   for (int i = 0; i < NumberOfControlPointTypes; i++)

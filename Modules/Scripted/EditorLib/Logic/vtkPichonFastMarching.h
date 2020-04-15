@@ -52,8 +52,8 @@ struct FMleaf {
 };
 
 /// these typedef are for tclwrapper...
-typedef std::vector<FMleaf> VecFMleaf;
-typedef std::vector<int> VecInt;
+using VecFMleaf = std::vector<FMleaf>;
+using VecInt = std::vector<int>;
 
 class PichonFastMarchingPDF;
 

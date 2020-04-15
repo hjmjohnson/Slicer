@@ -329,7 +329,7 @@ int vtkMRMLSliceIntersectionRepresentation2D::RenderOverlay(vtkViewport *viewpor
 //----------------------------------------------------------------------
 void vtkMRMLSliceIntersectionRepresentation2D::PrintSelf(ostream& os, vtkIndent indent)
 {
-  //Superclass typedef defined in vtkTypeMacro() found in vtkSetGet.h
+  //Superclass type alias defined in vtkTypeMacro() found in vtkSetGet.h
   this->Superclass::PrintSelf(os, indent);
 }
 

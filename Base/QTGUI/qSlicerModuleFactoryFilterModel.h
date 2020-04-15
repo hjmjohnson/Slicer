@@ -50,8 +50,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerModuleFactoryFilterModel
   /// false by default
   Q_PROPERTY(bool hideAllWhenShowModulesIsEmpty READ hideAllWhenShowModulesIsEmpty WRITE setHideAllWhenShowModulesIsEmpty)
 public:
-  /// Superclass typedef
-  typedef QSortFilterProxyModel Superclass;
+  /// Superclass type alias
+  using Superclass = QSortFilterProxyModel;
 
   /// Constructor
   explicit qSlicerModuleFactoryFilterModel(QObject* parent = nullptr);

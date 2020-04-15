@@ -45,7 +45,7 @@
 class qSlicerSegmentEditorScriptedLabelEffectPrivate
 {
 public:
-  typedef qSlicerSegmentEditorScriptedLabelEffectPrivate Self;
+  using Self = qSlicerSegmentEditorScriptedLabelEffectPrivate;
   qSlicerSegmentEditorScriptedLabelEffectPrivate();
   virtual ~qSlicerSegmentEditorScriptedLabelEffectPrivate();
 

@@ -39,8 +39,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerSettingsStylesPanel
   /// \sa currentStyle(), setCurrentStyle(), currentStyleChanged()
   Q_PROPERTY(QString currentStyle READ currentStyle WRITE setCurrentStyle NOTIFY currentStyleChanged)
 public:
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   explicit qSlicerSettingsStylesPanel(QWidget* parent = nullptr);

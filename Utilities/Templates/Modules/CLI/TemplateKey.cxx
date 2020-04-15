@@ -19,8 +19,8 @@ int DoIt( int argc, char * argv[], TPixel )
 {
   PARSE_ARGS;
 
-  typedef TPixel InputPixelType;
-  typedef TPixel OutputPixelType;
+  using InputPixelType = TPixel;
+  using OutputPixelType = TPixel;
 
   const unsigned int Dimension = 3;
 
@@ -39,7 +39,7 @@ int DoIt( int argc, char * argv[], TPixel )
   filter->SetInput( reader->GetOutput() );
   filter->SetSigma( sigma );
 
-  typedef itk::ImageFileWriter<OutputImageType> WriterType;
+  using WriterType = itk::ImageFileWriter<OutputImageType>;
   typename WriterType::Pointer writer = WriterType::New();
   writer->SetFileName( outputVolume.c_str() );
   writer->SetInput( filter->GetOutput() );

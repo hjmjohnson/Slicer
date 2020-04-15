@@ -35,8 +35,8 @@ class Q_SLICER_STYLES_PLUGINS_EXPORT qSlicerStylePlugin : public QStylePlugin
   Q_OBJECT
   Q_PLUGIN_METADATA(IID QStyleFactoryInterface_iid FILE "SlicerStyle.json")
 public:
-  /// Superclass typedef
-  typedef QStylePlugin Superclass;
+  /// Superclass type alias
+  using Superclass = QStylePlugin;
 
   /// Constructors
   qSlicerStylePlugin();

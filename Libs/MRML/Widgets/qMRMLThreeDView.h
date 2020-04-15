@@ -41,8 +41,8 @@ class QMRML_WIDGETS_EXPORT qMRMLThreeDView : public ctkVTKRenderView
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef ctkVTKRenderView Superclass;
+  /// Superclass type alias
+  using Superclass = ctkVTKRenderView;
 
   /// Constructors
   explicit qMRMLThreeDView(QWidget* parent = nullptr);

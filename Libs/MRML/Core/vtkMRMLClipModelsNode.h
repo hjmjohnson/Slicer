@@ -92,12 +92,13 @@ public:
   ///
   ///Indicates what clipping method should be used
   ///Straight cut, whole cell extraction, or whole cell extraction with boundary cells
-  typedef enum
+  enum ClippingMethodType_t
   {
     Straight = 0,
     WholeCells,
     WholeCellsWithBoundary,
-  } ClippingMethodType;
+  };
+  using ClippingMethodType = enum ClippingMethodType_t;
 
   vtkGetMacro(ClippingMethod, ClippingMethodType);
   vtkSetMacro(ClippingMethod, ClippingMethodType);

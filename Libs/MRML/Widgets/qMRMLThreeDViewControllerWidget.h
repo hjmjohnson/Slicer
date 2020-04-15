@@ -45,8 +45,8 @@ class QMRML_WIDGETS_EXPORT qMRMLThreeDViewControllerWidget
   Q_OBJECT
   QVTK_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLViewControllerBar Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLViewControllerBar;
 
   /// Constructors
   explicit qMRMLThreeDViewControllerWidget(QWidget* parent = nullptr);

@@ -31,7 +31,13 @@ class MRMLIDMap;
 
 #include "qSlicerBaseQTCLIExport.h"
 
-typedef enum { CommandLineModule, SharedObjectModule, PythonModule } CommandLineModuleType;
+enum CommandLineModuleType_t
+{
+  CommandLineModule, 
+  SharedObjectModule, 
+  PythonModule 
+};
+using CommandLineModuleType = enum CommandLineModuleType_t;
 
 /// \brief Logic for running CLI
 ///

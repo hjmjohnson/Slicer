@@ -34,7 +34,7 @@ class Q_SLICER_QTMODULES_LOADABLEMODULETEMPLATE_EXPORT qSlicerLoadableModuleTemp
 
 public:
 
-  typedef qSlicerAbstractModuleWidget Superclass;
+  using Superclass = qSlicerAbstractModuleWidget;
   qSlicerLoadableModuleTemplateModuleWidget(QWidget *parent=0);
   virtual ~qSlicerLoadableModuleTemplateModuleWidget();
 

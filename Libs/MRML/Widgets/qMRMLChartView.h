@@ -42,8 +42,8 @@ class QMRML_WIDGETS_EXPORT qMRMLChartView :
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef QWebEngineView Superclass;
+  /// Superclass type alias
+  using Superclass = QWebEngineView;
 
   /// Constructors
   explicit qMRMLChartView(QWidget* parent = nullptr);

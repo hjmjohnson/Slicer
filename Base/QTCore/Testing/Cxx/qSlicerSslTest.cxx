@@ -14,7 +14,7 @@
 class qSlicerSslTester: public QObject
 {
   Q_OBJECT
-  typedef qSlicerSslTester Self;
+  using Self = qSlicerSslTester;
 
 private slots:
   void testSupportsSsl();

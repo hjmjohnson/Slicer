@@ -48,8 +48,8 @@ class QMRML_WIDGETS_EXPORT qMRMLThreeDWidget : public qMRMLWidget
   Q_PROPERTY(QColor viewColor READ viewColor WRITE setViewColor)
 
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLThreeDWidget(QWidget* parent = nullptr);

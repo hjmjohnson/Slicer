@@ -46,8 +46,8 @@ class QMRML_WIDGETS_EXPORT qMRMLTableViewControllerWidget
   QVTK_OBJECT
 
 public:
-  /// Superclass typedef
-  typedef qMRMLViewControllerBar Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLViewControllerBar;
 
   /// Constructors
   explicit qMRMLTableViewControllerWidget(QWidget* parent = nullptr);

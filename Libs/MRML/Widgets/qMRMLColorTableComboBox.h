@@ -34,8 +34,8 @@ class QMRML_WIDGETS_EXPORT qMRMLColorTableComboBox : public qMRMLNodeComboBox
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLNodeComboBox Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLNodeComboBox;
 
   /// Construct an empty qMRMLColorTableComboBox with a null scene,
   /// no nodeType, where the hidden nodes are not forced on display.

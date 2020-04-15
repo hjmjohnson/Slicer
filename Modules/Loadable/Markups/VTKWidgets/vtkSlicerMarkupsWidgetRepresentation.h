@@ -280,7 +280,7 @@ protected:
     /// Get the list of info for all interaction handles
     std::vector<HandleInfo> GetHandleInfoList();
   };
-  typedef std::vector<MarkupsInteractionPipeline::HandleInfo> HandleInfoList;
+  using HandleInfoList = std::vector<MarkupsInteractionPipeline::HandleInfo>;
 
   // Calculate view size and scale factor
   virtual void UpdateViewScaleFactor() = 0;

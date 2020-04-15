@@ -38,8 +38,8 @@ class Q_SLICER_MODULE_PLOTS_WIDGETS_EXPORT qMRMLPlotChartPropertiesWidget : publ
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLPlotChartPropertiesWidget(QWidget* parent = nullptr);

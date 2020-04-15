@@ -41,8 +41,8 @@ class QMRML_WIDGETS_EXPORT qMRMLNavigationView : public ctkVTKThumbnailView
   QVTK_OBJECT
 
 public:
-  /// Superclass typedef
-  typedef ctkVTKThumbnailView Superclass;
+  /// Superclass type alias
+  using Superclass = ctkVTKThumbnailView;
 
   /// Constructors
   explicit qMRMLNavigationView(QWidget* parent = nullptr);

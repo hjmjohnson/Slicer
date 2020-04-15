@@ -20,9 +20,9 @@ public:
   typedef __int64 PrintType;
   typedef unsigned __int64 AbsType;
   typedef __int64 AccumulateType;
-  typedef double RealType;
-  typedef RealType ScalarRealType;
-  typedef float FloatType;
+  using RealType = double;
+  using ScalarRealType = RealType;
+  using FloatType = float;
   static const __int64 VTK_ITK_EXPORT Zero;
   static const __int64 VTK_ITK_EXPORT One;
 
@@ -45,9 +45,9 @@ public:
   typedef unsigned __int64 PrintType;
   typedef unsigned __int64 AbsType;
   typedef unsigned __int64 AccumulateType;
-  typedef double RealType;
-  typedef RealType ScalarRealType;
-  typedef float FloatType;
+  using RealType = double;
+  using ScalarRealType = RealType;
+  using FloatType = float;
   static const unsigned __int64 VTK_ITK_EXPORT Zero;
   static const unsigned __int64 VTK_ITK_EXPORT One;
 

@@ -114,10 +114,12 @@ public:
 
   /// Mesh Type hint
   /// \sa GetMeshType()
-  typedef enum {
+  enum MeshTypeHint_t
+  {
     PolyDataMeshType = 0,
     UnstructuredGridMeshType
-  } MeshTypeHint;
+  };
+  using MeshTypeHint = enum MeshTypeHint_t;
 
   /// Get the mesh type of that model. The safest way
   /// to know if the mesh is unstructuredGrid is to check
@@ -132,11 +134,8 @@ public:
   /// doesn't mark the mesh as modified, which my result in an incorrect
   /// return value for GetModifiedSinceRead()
   /// \sa GetModifiedSinceRead()
-  enum
-    {
-    MeshModifiedEvent = 17001,
-    PolyDataModifiedEvent = 17001 ///< \deprecated Use MeshModifiedEvent
-    };
+  static constexpr unsigned int MeshModifiedEvent = 17001;
+  static constexpr unsigned int PolyDataModifiedEvent = 17001; ///< \deprecated Use MeshModifiedEvent
 
   /// Utility function that adds an array to the mesh's point data.
   //// \sa AddCellScalars, AddScalars

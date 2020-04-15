@@ -45,7 +45,7 @@ class Q_SLICER_MODULE_DICOMLIB_WIDGETS_EXPORT qSlicerDICOMTagEditorWidget : publ
   Q_OBJECT
 
 public:
-  typedef QWidget Superclass;
+  using Superclass = QWidget;
   qSlicerDICOMTagEditorWidget(QWidget *parent=nullptr);
   ~qSlicerDICOMTagEditorWidget() override;
 

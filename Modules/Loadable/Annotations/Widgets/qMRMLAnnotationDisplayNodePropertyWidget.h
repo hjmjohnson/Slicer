@@ -20,7 +20,7 @@ class Q_SLICER_MODULE_ANNOTATIONS_WIDGETS_EXPORT qMRMLAnnotationDisplayNodePrope
   QVTK_OBJECT
 
 public:
-  typedef qMRMLWidget Superclass;
+  using Superclass = qMRMLWidget;
   qMRMLAnnotationDisplayNodePropertyWidget(QWidget *newParent = 0);
   virtual ~qMRMLAnnotationDisplayNodePropertyWidget();
 

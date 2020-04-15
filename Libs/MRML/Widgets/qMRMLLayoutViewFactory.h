@@ -51,8 +51,8 @@ class QMRML_WIDGETS_EXPORT qMRMLLayoutViewFactory : public ctkLayoutViewFactory
   /// \sa viewClassName(), isElementSupported, isViewNodeSupported
   Q_PROPERTY(QString viewClassName READ viewClassName);
 public:
-  /// Superclass typedef
-  typedef ctkLayoutViewFactory Superclass;
+  /// Superclass type alias
+  using Superclass = ctkLayoutViewFactory;
 
   /// Constructors
   explicit qMRMLLayoutViewFactory(QObject* parent=nullptr);

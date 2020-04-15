@@ -7,7 +7,7 @@
 
 template <typename T> class QList;
 template <class Key, class T> class QMap;
-typedef QMap<QString, QVariant> QVariantMap;
+using QVariantMap = QMap<QString, QVariant>;
 
 Q_DECLARE_METATYPE(QList<QVariantMap>);
 

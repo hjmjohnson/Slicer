@@ -64,11 +64,11 @@ class Q_SLICER_MODULE_DICOMLIB_WIDGETS_EXPORT qSlicerDICOMExportable : public QO
   /// The pseudo-tags are translated into real DICOM tags at the time of export.
   /// It tag is a pair of strings (name, value). When the exportable is created
   /// by the DICOM plugin, value is the default value that is set in the editor widget
-  typedef QMap<QString,QString> TagsMap;
+  using TagsMap = QMap<QString,QString>;
   Q_PROPERTY(TagsMap tags READ tags WRITE setTags);
 
 public:
-  typedef QObject Superclass;
+  using Superclass = QObject;
   qSlicerDICOMExportable(QObject *parent = nullptr);
   ~qSlicerDICOMExportable() override;
 

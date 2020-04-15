@@ -45,8 +45,8 @@ class Q_SLICER_QTMODULES_UNITS_EXPORT qSlicerUnitsSettingsPanel
   Q_PROPERTY(QStringList quantities READ quantities WRITE setQuantities NOTIFY quantitiesChanged)
 public:
 
-  /// Superclass typedef
-  typedef ctkSettingsPanel Superclass;
+  /// Superclass type alias
+  using Superclass = ctkSettingsPanel;
 
   /// Constructor
   qSlicerUnitsSettingsPanel(QWidget* parent = nullptr);

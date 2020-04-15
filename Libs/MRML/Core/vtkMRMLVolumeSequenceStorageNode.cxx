@@ -102,7 +102,7 @@ int vtkMRMLVolumeSequenceStorageNode::ReadDataInternal(vtkMRMLNode* refNode)
 
   // Read index information and custom attributes
   std::vector< std::string > indexValues;
-  typedef std::vector<std::string> KeyVector;
+  using KeyVector = std::vector<std::string>;
   KeyVector keys = reader->GetHeaderKeysVector();
   int frameAxis = 0;
   for ( KeyVector::iterator kit = keys.begin(); kit != keys.end(); ++kit)

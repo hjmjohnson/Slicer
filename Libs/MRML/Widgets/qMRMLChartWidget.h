@@ -43,8 +43,8 @@ class QMRML_WIDGETS_EXPORT qMRMLChartWidget : public qMRMLWidget
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructors
   explicit qMRMLChartWidget(QWidget* parent = nullptr);

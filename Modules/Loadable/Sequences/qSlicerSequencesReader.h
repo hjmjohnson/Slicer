@@ -35,7 +35,7 @@ class qSlicerSequencesReader
 {
   Q_OBJECT
 public:
-  typedef qSlicerFileReader Superclass;
+  using Superclass = qSlicerFileReader;
   qSlicerSequencesReader(vtkSlicerSequencesLogic* sequencesLogic = 0, QObject* parent = 0);
   ~qSlicerSequencesReader() override;
 

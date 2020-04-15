@@ -54,8 +54,8 @@ public:
   Q_PROPERTY(bool selectNodeUponCreation READ selectNodeUponCreation WRITE setSelectNodeUponCreation)
 
 public:
-  /// Superclass typedef
-  typedef qMRMLWidget Superclass;
+  /// Superclass type alias
+  using Superclass = qMRMLWidget;
 
   /// Constructor
   explicit qMRMLSegmentSelectorWidget(QWidget* parent = nullptr);

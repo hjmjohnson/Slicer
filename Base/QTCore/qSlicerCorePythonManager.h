@@ -38,7 +38,7 @@ class Q_SLICER_BASE_QTCORE_EXPORT qSlicerCorePythonManager : public ctkAbstractP
   Q_PROPERTY(QStringList pythonPaths READ pythonPaths)
 
 public:
-  typedef ctkAbstractPythonManager Superclass;
+  using Superclass = ctkAbstractPythonManager;
   qSlicerCorePythonManager(QObject* parent=nullptr);
   ~qSlicerCorePythonManager() override;
 

@@ -47,7 +47,7 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerScriptedLoadableModuleFactory :
 {
 public:
 
-  typedef ctkAbstractFileBasedFactory<qSlicerAbstractCoreModule> Superclass;
+  using Superclass = ctkAbstractFileBasedFactory<qSlicerAbstractCoreModule>;
   qSlicerScriptedLoadableModuleFactory();
   ~qSlicerScriptedLoadableModuleFactory() override;
 

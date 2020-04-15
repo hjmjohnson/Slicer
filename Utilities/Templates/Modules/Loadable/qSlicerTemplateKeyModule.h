@@ -36,7 +36,7 @@ qSlicerTemplateKeyModule
 
 public:
 
-  typedef qSlicerLoadableModule Superclass;
+  using Superclass = qSlicerLoadableModule;
   explicit qSlicerTemplateKeyModule(QObject *parent=0);
   virtual ~qSlicerTemplateKeyModule();
 

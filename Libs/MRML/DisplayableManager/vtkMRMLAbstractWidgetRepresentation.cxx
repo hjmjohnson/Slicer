@@ -96,7 +96,7 @@ vtkMRMLAbstractViewNode* vtkMRMLAbstractWidgetRepresentation::GetViewNode()
 void vtkMRMLAbstractWidgetRepresentation::PrintSelf(ostream& os,
                                                       vtkIndent indent)
 {
-  //Superclass typedef defined in vtkTypeMacro() found in vtkSetGet.h
+  //Superclass type alias defined in vtkTypeMacro() found in vtkSetGet.h
   this->Superclass::PrintSelf(os, indent);
   os << indent << "PickingTolerance : " << this->PickingTolerance <<"\n";
   os << indent << "ScreenScaleFactor: " << this->ScreenScaleFactor << "\n";

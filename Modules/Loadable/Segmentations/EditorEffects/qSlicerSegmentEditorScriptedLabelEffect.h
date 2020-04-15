@@ -51,7 +51,7 @@ class Q_SLICER_SEGMENTATIONS_EFFECTS_EXPORT qSlicerSegmentEditorScriptedLabelEff
   Q_OBJECT
 
 public:
-  typedef qSlicerSegmentEditorAbstractLabelEffect Superclass;
+  using Superclass = qSlicerSegmentEditorAbstractLabelEffect;
   qSlicerSegmentEditorScriptedLabelEffect(QObject* parent = nullptr);
   ~qSlicerSegmentEditorScriptedLabelEffect() override;
 

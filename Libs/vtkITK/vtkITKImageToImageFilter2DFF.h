@@ -36,8 +36,8 @@ public:
 protected:
 
   /// To/from ITK
-  typedef float InputImagePixelType;
-  typedef float OutputImagePixelType;
+  using InputImagePixelType = float;
+  using OutputImagePixelType = float;
   typedef itk::Image<InputImagePixelType, 2> InputImageType;
   typedef itk::Image<OutputImagePixelType, 2> OutputImageType;
 

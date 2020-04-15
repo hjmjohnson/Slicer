@@ -39,8 +39,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerScriptedLoadableModuleWidget
   Q_OBJECT
   Q_PROPERTY(QString moduleName READ moduleName)
 public:
-  typedef qSlicerAbstractModuleWidget Superclass;
-  typedef qSlicerScriptedLoadableModuleWidgetPrivate Pimpl;
+  using Superclass = qSlicerAbstractModuleWidget;
+  using Pimpl = qSlicerScriptedLoadableModuleWidgetPrivate;
   qSlicerScriptedLoadableModuleWidget(QWidget * parentWidget=nullptr);
   ~qSlicerScriptedLoadableModuleWidget() override;
 

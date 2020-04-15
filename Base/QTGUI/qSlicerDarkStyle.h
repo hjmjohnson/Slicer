@@ -29,8 +29,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerDarkStyle : public qSlicerStyle
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef qSlicerStyle Superclass;
+  /// Superclass type alias
+  using Superclass = qSlicerStyle;
 
   /// Constructors
   qSlicerDarkStyle();

@@ -31,8 +31,8 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerStyle : public ctkProxyStyle
 {
   Q_OBJECT
 public:
-  /// Superclass typedef
-  typedef ctkProxyStyle Superclass;
+  /// Superclass type alias
+  using Superclass = ctkProxyStyle;
 
   /// Constructors
   qSlicerStyle();

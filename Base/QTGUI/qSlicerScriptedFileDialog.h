@@ -38,7 +38,7 @@ class Q_SLICER_BASE_QTGUI_EXPORT qSlicerScriptedFileDialog
   Q_OBJECT
 
 public:
-  typedef qSlicerStandardFileDialog Superclass;
+  using Superclass = qSlicerStandardFileDialog;
   qSlicerScriptedFileDialog(QObject* parent = nullptr);
   ~qSlicerScriptedFileDialog() override;
 

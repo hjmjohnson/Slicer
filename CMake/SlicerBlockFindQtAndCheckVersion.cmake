@@ -19,13 +19,13 @@
 ################################################################################
 
 macro(__SlicerBlockFindQtAndCheckVersion_find_qt)
-    find_package(Qt5 COMPONENTS ${Slicer_REQUIRED_QT_MODULES})
-    set(_found_var Qt5_FOUND)
-    set(_error_details "You probably need to set the Qt5_DIR variable.")
-    set(_major ${Qt5_VERSION_MAJOR})
-    set(_minor ${Qt5_VERSION_MINOR})
-    set(_patch ${Qt5_VERSION_PATCH})
-    set(_found_prefix "Qt5")
+    find_package(Qt6 COMPONENTS ${Slicer_REQUIRED_QT_MODULES})
+    set(_found_var Qt6_FOUND)
+    set(_error_details "You probably need to set the Qt6_DIR variable.")
+    set(_major ${Qt6_VERSION_MAJOR})
+    set(_minor ${Qt6_VERSION_MINOR})
+    set(_patch ${Qt6_VERSION_PATCH})
+    set(_found_prefix "Qt6")
   if(NOT ${_found_var})
     message(FATAL_ERROR "error: Qt ${Slicer_REQUIRED_QT_VERSION} was not found on your system."
                         "${_error_details}")
@@ -58,10 +58,10 @@ foreach(v ${expected_defined_vars})
   endif()
 endforeach()
 
-# Check Qt5_DIR provided by CTK
+# Check Qt6_DIR provided by CTK
 set(extra_error_message)
-  if(DEFINED CTK_Qt5_DIR AND NOT EXISTS "${CTK_Qt5_DIR}")
-    message(FATAL_ERROR "error: You should probably re-configure CTK. CTK_Qt5_DIR points to a nonexistent directory: ${CTK_Qt5_DIR}")
+  if(DEFINED CTK_Qt6_DIR AND NOT EXISTS "${CTK_Qt6_DIR}")
+    message(FATAL_ERROR "error: You should probably re-configure CTK. CTK_Qt6_DIR points to a nonexistent directory: ${CTK_Qt6_DIR}")
   endif()
 
 __SlicerBlockFindQtAndCheckVersion_find_qt()
@@ -72,16 +72,16 @@ if(NOT Slicer_SOURCE_DIR)
 endif()
 message(STATUS "Configuring ${_project_name} with Qt ${_major}.${_minor}.${_patch} (using modules: ${command_separated_module_list})")
 
-# Since Qt5 does not set CMake variables for plugins and binary directories,
+# Since Qt6 does not set CMake variables for plugins and binary directories,
 # we explicitly set them here.
-  set(QT_PLUGINS_DIR "${Qt5_DIR}/../../../plugins")
+  set(QT_PLUGINS_DIR "${Qt6_DIR}/../../../plugins")
   get_filename_component(QT_PLUGINS_DIR ${QT_PLUGINS_DIR} ABSOLUTE)
   message(STATUS "Setting QT_PLUGINS_DIR: ${QT_PLUGINS_DIR}")
 
-  set(QT_BINARY_DIR "${Qt5_DIR}/../../../bin")
+  set(QT_BINARY_DIR "${Qt6_DIR}/../../../bin")
   get_filename_component(QT_BINARY_DIR ${QT_BINARY_DIR} ABSOLUTE)
   message(STATUS "Setting QT_BINARY_DIR: ${QT_BINARY_DIR}")
 
-set(QT_LIBRARY_DIR "${Qt5_DIR}/../../../lib")
+set(QT_LIBRARY_DIR "${Qt6_DIR}/../../../lib")
 get_filename_component(QT_LIBRARY_DIR ${QT_LIBRARY_DIR} ABSOLUTE)
 message(STATUS "Setting QT_LIBRARY_DIR: ${QT_LIBRARY_DIR}")

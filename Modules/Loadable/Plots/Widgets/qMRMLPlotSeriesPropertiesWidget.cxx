@@ -201,7 +201,7 @@ void qMRMLPlotSeriesPropertiesWidgetPrivate::updateWidgetFromMRML()
   // Update Markers Style
   wasBlocked = this->markersStyleComboBox->blockSignals(true);
   const char* plotMarkersStyle = this->PlotSeriesNode->GetMarkerStyleAsString(this->PlotSeriesNode->GetMarkerStyle());
-  // After Qt5 migration, the next line can be replaced by this call:
+  // After Qt6 migration, the next line can be replaced by this call:
   // this->markersStyleComboBox->setCurrentText(plotMarkersStyle);
   this->markersStyleComboBox->setCurrentIndex(this->markersStyleComboBox->findText(plotMarkersStyle));
   this->markersStyleComboBox->setEnabled(
@@ -220,7 +220,7 @@ void qMRMLPlotSeriesPropertiesWidgetPrivate::updateWidgetFromMRML()
   // Update Line Style
   wasBlocked = this->lineStyleComboBox->blockSignals(true);
   const char* plotLineStyle = this->PlotSeriesNode->GetLineStyleAsString(this->PlotSeriesNode->GetLineStyle());
-  // After Qt5 migration, the next line can be replaced by this call:
+  // After Qt6 migration, the next line can be replaced by this call:
   // this->markersStyleComboBox->setCurrentText(plotMarkersStyle);
   this->lineStyleComboBox->setCurrentIndex(this->lineStyleComboBox->findText(plotLineStyle));
   this->lineStyleComboBox->setEnabled(

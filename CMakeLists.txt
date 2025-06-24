@@ -195,17 +195,8 @@ mark_as_superbuild(Patch_EXECUTABLE)
 # Qt requirements
 #-----------------------------------------------------------------------------
 if(NOT DEFINED Slicer_REQUIRED_QT_VERSION)
-  # Official builds and tests are performed with Qt-5.15 on all platforms,
-  # but since it is not easy to get latest Qt versions on Linux, the version
-  # requirement is relaxed on Linux so that it builds on Ubuntu-20.04.
-  # See https://github.com/Slicer/Slicer/issues/5804 for more details.
-  if(UNIX AND NOT APPLE)
-    # Linux
-    set(_required_qt_version "5.12")
-  else()
-    # Windows and macOS
-    set(_required_qt_version "5.15")
-  endif()
+  # Official builds and tests are performed with Qt-6.9.1 on all platforms,
+  set(_required_qt_version "6.9.1")
   set(Slicer_REQUIRED_QT_VERSION ${_required_qt_version} CACHE STRING "Minimum required Qt version" FORCE)
 endif()
 mark_as_superbuild(Slicer_REQUIRED_QT_VERSION)
@@ -641,7 +632,7 @@ endif()
 #-----------------------------------------------------------------------------
 # Qt - Slicer_REQUIRED_QT_MODULES
 #-----------------------------------------------------------------------------
-# Module name should be specified as they appear in FindQt5.cmake.
+# Module name should be specified as they appear in FindQt6.cmake.
 # For example, the module name associated with the variable QT_USE_QTXML is QTXML.
 # Note that the modules will be installed when packaging.
   set(Slicer_REQUIRED_QT_MODULES
@@ -660,13 +651,13 @@ endif()
       )
   endif()
 
-  # Add the Qt5X11Extras component for Linux systems
+  # Add the Qt6X11Extras component for Linux systems
   # This component is needed for building VTK
   if(UNIX AND NOT APPLE)
     list(APPEND Slicer_REQUIRED_QT_MODULES X11Extras)
   endif()
 
-  find_package(Qt5 COMPONENTS Core QUIET)
+  find_package(Qt6 COMPONENTS Core QUIET)
   if(Slicer_BUILD_WEBENGINE_SUPPORT)
     list(APPEND Slicer_REQUIRED_QT_MODULES
       WebEngine
@@ -692,7 +683,7 @@ list(APPEND Slicer_REQUIRED_QT_MODULES ${Slicer_ADDITIONAL_REQUIRED_QT_MODULES})
     if(lib MATCHES "^(LinguistTools)$")
       continue()
     endif()
-    list(APPEND QT_LIBRARIES Qt5::${lib})
+    list(APPEND QT_LIBRARIES Qt6::${lib})
   endforeach()
 
 if(DEFINED Slicer_ADDITIONAL_REQUIRED_QT_MODULES)
@@ -711,13 +702,13 @@ set(Slicer_INSTALL_QtPlugins_DIR "${Slicer_INSTALL_ROOT}${Slicer_QtPlugins_DIR}"
 # Qt
 #-----------------------------------------------------------------------------
 include(SlicerBlockFindQtAndCheckVersion)
-  mark_as_superbuild(VARS Qt5_DIR LABELS "FIND_PACKAGE")
+  mark_as_superbuild(VARS Qt6_DIR LABELS "FIND_PACKAGE")
 
 set(Slicer_HAVE_QT5 1)
     set(Slicer_HAVE_WEBKIT_SUPPORT 0)
 
 #
-# If qmake or Qt5Config are associated with a system location, explicitly mark Qt as such. Doing so
+# If qmake or Qt6Config are associated with a system location, explicitly mark Qt as such. Doing so
 # will prevent system path from being prepended to PATH or (DY)LD_LIBRARY_PATH
 # when generating the launcher settings and avoid system libraries symbols from
 # conflicting with Slicer version of these libraries.
@@ -729,7 +720,7 @@ if(NOT DEFINED Slicer_USE_SYSTEM_QT)
       "/usr/lib/"
       "/usr/lib/${CMAKE_LIBRARY_ARCHITECTURE}/"
       # The following line is a consequence of multiarch usr merge (https://wiki.debian.org/UsrMerge)
-      # /usr/lib will bye symlinked to /lib. In this case Qt5_DIR could be reported as
+      # /usr/lib will bye symlinked to /lib. In this case Qt6_DIR could be reported as
       # /lib/${CMAKE_LIBRARY_ARCHITECTURE}/
       "/lib/"
       "/lib/${CMAKE_LIBRARY_ARCHITECTURE}/"
@@ -742,10 +733,10 @@ if(NOT DEFINED Slicer_USE_SYSTEM_QT)
       "/opt/lib"
       "/opt/local/lib"
       )
-    if("${Qt5_DIR}" MATCHES "^${_path}")
+    if("${Qt6_DIR}" MATCHES "^${_path}")
       set(Slicer_USE_SYSTEM_QT ON)
       message(STATUS "")
-      message(STATUS "Initializing Slicer_USE_SYSTEM_QT to ON (Qt5_DIR [${Qt5_DIR}] associated with a system location: ${_path})")
+      message(STATUS "Initializing Slicer_USE_SYSTEM_QT to ON (Qt6_DIR [${Qt6_DIR}] associated with a system location: ${_path})")
       message(STATUS "")
       break()
     endif()

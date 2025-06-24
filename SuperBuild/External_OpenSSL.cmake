@@ -47,7 +47,7 @@ if(NOT DEFINED OPENSSL_LIBRARIES
   if(UNIX)
     # Starting with Qt 5.12.4, official Qt binaries are build against OpenSSL 1.1.1
     # See https://www.qt.io/blog/2019/06/17/qt-5-12-4-released-support-openssl-1-1-1
-    if("${Qt5_VERSION_MAJOR}.${Qt5_VERSION_MINOR}.${Qt5_VERSION_PATCH}" VERSION_GREATER_EQUAL "5.12.4")
+    if("${Qt6_VERSION_MAJOR}.${Qt6_VERSION_MINOR}.${Qt6_VERSION_PATCH}" VERSION_GREATER_EQUAL "5.12.4")
       set(_default_version "1.1.1w")
     else()
       set(_default_version "1.0.2n")
@@ -196,7 +196,7 @@ ExternalProject_Execute(${proj} \"build\" make \${jflag} build_libs)
 
     # Starting with Qt 5.12.4, official Qt binaries are build against OpenSSL 1.1.1
     # See https://www.qt.io/blog/2019/06/17/qt-5-12-4-released-support-openssl-1-1-1
-    if("${Qt5_VERSION_MAJOR}.${Qt5_VERSION_MINOR}.${Qt5_VERSION_PATCH}" VERSION_GREATER_EQUAL "5.12.4")
+    if("${Qt6_VERSION_MAJOR}.${Qt6_VERSION_MINOR}.${Qt6_VERSION_PATCH}" VERSION_GREATER_EQUAL "5.12.4")
       set(_default_version "1.1.1g")
     else()
       set(_default_version "1.0.1h")

@@ -24,7 +24,7 @@ code of Slicer, generating the project files, and building the project.
 In addition, Slicer requires a set of support libraries that are not included as
 part of the *superbuild*:
 
-- Qt5 with the components listed below. Qt version 5.15.2 is recommended; other Qt versions are not tested and may cause build errors or may cause problems when running the application.
+- Qt6 with the components listed below. Qt version 5.15.2 is recommended; other Qt versions are not tested and may cause build errors or may cause problems when running the application.
   - Multimedia
   - UiTools
   - XMLPatterns
@@ -166,7 +166,7 @@ export QT_ACCOUNT_PASSWORD=<set your password here>
   --pw $QT_ACCOUNT_PASSWORD
 ```
 :::{hint}
-When configuring the Slicer build project, the CMake variable `Qt5_DIR` need to be set using the full path to the Qt5 installation directory ending with `5.15.2/gcc_64/lib/cmake/Qt5`. For example, assuming you installed Qt in `/opt/qt`, you may use `cmake -DCMAKE_BUILD_TYPE:STRING=Release -DQt5_DIR:PATH=/opt/qt/5.15.2/gcc_64/lib/cmake/Qt5 ../Slicer`.
+When configuring the Slicer build project, the CMake variable `Qt6_DIR` need to be set using the full path to the Qt6 installation directory ending with `5.15.2/gcc_64/lib/cmake/Qt6`. For example, assuming you installed Qt in `/opt/qt`, you may use `cmake -DCMAKE_BUILD_TYPE:STRING=Release -DQt6_DIR:PATH=/opt/qt/5.15.2/gcc_64/lib/cmake/Qt6 ../Slicer`.
 
 :::
 

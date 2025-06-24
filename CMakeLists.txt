@@ -640,7 +640,7 @@ endif()
     Network OpenGL
     PrintSupport
     UiTools #no dll
-    Xml XmlPatterns
+    Xml
     Svg Sql
     )
 
@@ -658,13 +658,13 @@ endif()
   endif()
 
   find_package(Qt6 COMPONENTS Core QUIET)
-  if(Slicer_BUILD_WEBENGINE_SUPPORT)
-    list(APPEND Slicer_REQUIRED_QT_MODULES
-      WebEngine
-      WebEngineWidgets
-      WebChannel
-      )
-  endif()
+  #  if(Slicer_BUILD_WEBENGINE_SUPPORT)
+  #  list(APPEND Slicer_REQUIRED_QT_MODULES
+  #    WebEngine
+  #    WebEngineWidgets
+  #    WebChannel
+  #    )
+  #endif()
   # Both "extension manager" and "application update" require qRestApi external
   # project itself depending on Qt's Qml module
   if(Slicer_BUILD_EXTENSIONMANAGER_SUPPORT OR Slicer_BUILD_APPLICATIONUPDATE_SUPPORT)

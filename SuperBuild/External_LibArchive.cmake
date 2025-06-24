@@ -33,7 +33,7 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_TAG
-    "14ec55f065e31fbbca23d3d96d43e07f21c6fb6d" # slicer-v3.6.1-2022-04-08-6c3301111
+    "ffde04f27231cabb91cebcbd7eca08d0f5088dc8" # slicer-v3.9.0-2025-06-20-ffde04f27
     QUIET
     )
 
@@ -71,6 +71,7 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
       -DENABLE_CAT:BOOL=OFF
       -DENABLE_CNG:BOOL=OFF
       -DENABLE_CPIO:BOOL=OFF
+      -DENABLE_LIBGCC:BOOL=OFF
       -DENABLE_EXPAT:BOOL=OFF
       -DENABLE_ICONV:BOOL=OFF
       -DENABLE_LIBB2:BOOL=OFF
@@ -83,11 +84,16 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
       -DENABLE_NETTLE:BOOL=OFF
       -DENABLE_OPENSSL:BOOL=OFF
       -DENABLE_PCREPOSIX:BOOL=OFF
+      -DENABLE_PCRE2POSIX:BOOL=OFF
       -DENABLE_TAR:BOOL=OFF
       -DENABLE_TEST:BOOL=OFF
       -DENABLE_XATTR:BOOL=OFF
       -DENABLE_ZSTD:BOOL=OFF
       -DARCHIVE_CRYPTO_MD5_LIBSYSTEM:BOOL=OFF
+      # Slicer needs ZLIB and UNZIP and INSTALL
+      -DENABLE_INSTALL:BOOL=ON
+      -DENABLE_UNZIP:BOOL=ON
+      -DENABLE_ZLIB:BOOL=ON
       -DZLIB_ROOT:PATH=${ZLIB_ROOT}
       -DZLIB_INCLUDE_DIR:PATH=${ZLIB_INCLUDE_DIR}
       -DZLIB_LIBRARY:FILEPATH=${ZLIB_LIBRARY}
@@ -98,7 +104,7 @@ if((NOT DEFINED LibArchive_INCLUDE_DIR
     )
   if(APPLE)
     ExternalProject_Add_Step(${proj} fix_rpath
-      COMMAND install_name_tool -id ${EP_INSTALL_DIR}/lib/libarchive.19.dylib ${EP_INSTALL_DIR}/lib/libarchive.19.dylib
+      COMMAND install_name_tool -id ${EP_INSTALL_DIR}/lib/libarchive.13.dylib ${EP_INSTALL_DIR}/lib/libarchive.13.dylib
       DEPENDEES install
       )
   endif()

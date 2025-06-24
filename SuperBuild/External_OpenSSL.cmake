@@ -47,11 +47,7 @@ if(NOT DEFINED OPENSSL_LIBRARIES
   if(UNIX)
     # Starting with Qt 5.12.4, official Qt binaries are build against OpenSSL 1.1.1
     # See https://www.qt.io/blog/2019/06/17/qt-5-12-4-released-support-openssl-1-1-1
-    if("${Qt6_VERSION_MAJOR}.${Qt6_VERSION_MINOR}.${Qt6_VERSION_PATCH}" VERSION_GREATER_EQUAL "5.12.4")
-      set(_default_version "1.1.1w")
-    else()
-      set(_default_version "1.0.2n")
-    endif()
+    set(_default_version "1.1.1w")
 
     set(OPENSSL_DOWNLOAD_VERSION "${_default_version}" CACHE STRING "Version of OpenSSL source package to download")
     set_property(CACHE OPENSSL_DOWNLOAD_VERSION PROPERTY STRINGS "1.0.1e" "1.0.1l" "1.0.2n" "1.1.1g" "1.1.1w")

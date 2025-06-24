@@ -407,7 +407,8 @@ mark_as_advanced(Slicer_USE_QtTesting)
 mark_as_superbuild(Slicer_USE_QtTesting)
 
 CMAKE_DEPENDENT_OPTION(
-  Slicer_USE_SimpleITK "Build Slicer with SimpleITK support" ON
+  #HACK UNTIL PCRE can be updated ____ Slicer_USE_SimpleITK "Build Slicer with SimpleITK support" ON
+  Slicer_USE_SimpleITK "Build Slicer with SimpleITK support" OFF
   "Slicer_USE_PYTHONQT" OFF)
 mark_as_superbuild(Slicer_USE_SimpleITK)
 

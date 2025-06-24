@@ -19,7 +19,7 @@ Slicer relies on a number of large third-party libraries (such VTK, ITK, DCMTK),
   - Enable `Desktop development with C++` and in installation details
   - Enable the `MSVC v143 - VS2022 C++ x64...` (Visual Studio 2022 v143 toolset with 64-bit support) component - in some distributions, this option is not enabled by default.
   - Enable the latest Windows10 SDK component - without this CMake might not find a compiler during configuration step.
-- [Qt5](https://www.qt.io/download-open-source): Download the Qt universal installer and install Qt 5.15.2. In the Select Components tab of the universal installer, click Categories, select Archive, and click Filter to fetch older versions of Qt. Qt version 5.15.2 and its components can be selected by expanding the `Qt` category. Components required: `MSVC2019 64-bit`, `Qt WebEngine`. Installing `Sources` and `Qt Debug Information Files` are recommended for debugging (they allow stepping into Qt files with the debugger in debug-mode builds).
+- [Qt6](https://www.qt.io/download-open-source): Download the Qt universal installer and install Qt 5.15.2. In the Select Components tab of the universal installer, click Categories, select Archive, and click Filter to fetch older versions of Qt. Qt version 5.15.2 and its components can be selected by expanding the `Qt` category. Components required: `MSVC2019 64-bit`, `Qt WebEngine`. Installing `Sources` and `Qt Debug Information Files` are recommended for debugging (they allow stepping into Qt files with the debugger in debug-mode builds).
   - Note: These are all free, open-source components with LGPL license which allow free usage for any purpose, for any individuals or companies.
 - [NSIS](https://nsis.sourceforge.io/Download) (optional): Needed if packaging Slicer. Make sure you install the language packs.
 
@@ -64,7 +64,7 @@ cd C:\D
 
 "C:\Program Files\CMake\bin\cmake.exe" ^
   -G "Visual Studio 17 2022" -A x64 ^
-  -DQt5_DIR:PATH=C:/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5 ^
+  -DQt6_DIR:PATH=C:/Qt/5.15.2/msvc2019_64/lib/cmake/Qt6 ^
   -S C:\D\S -B C:\D\SR
 
 "C:\Program Files\CMake\bin\cmake.exe" --build C:\D\SR --config Release
@@ -77,7 +77,7 @@ cd C:\D
 
 "C:\Program Files\CMake\bin\cmake.exe" ^
   -G "Visual Studio 17 2022" -A x64 ^
-  -DQt5_DIR:PATH=C:/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5 ^
+  -DQt6_DIR:PATH=C:/Qt/5.15.2/msvc2019_64/lib/cmake/Qt6 ^
   -S C:\D\S -B C:\D\SD
 
 "C:\Program Files\CMake\bin\cmake.exe" --build C:\D\SD --config Debug
@@ -88,7 +88,7 @@ cd C:\D
 - Run `CMake (cmake-gui)` from the Windows Start menu
 - Set `Where is the source code` to `<Slicer_SOURCE>` location
 - Set `Where to build the binaries` to `<Slicer_BUILD>` location. Do not configure yet!
-- Add `Qt5_DIR` variable pointing to Qt5 folder: click Add entry button, set `Name` to `Qt5_DIR`, set `Type` to `PATH`, and set `Value` to the Qt5 folder, such as `C:\Qt\5.15.2\msvc2019_64\lib\cmake\Qt5`.
+- Add `Qt6_DIR` variable pointing to Qt6 folder: click Add entry button, set `Name` to `Qt6_DIR`, set `Type` to `PATH`, and set `Value` to the Qt6 folder, such as `C:\Qt\5.15.2\msvc2019_64\lib\cmake\Qt6`.
 - Click `Configure`
 - Select your compiler: `Visual Studio 17 2022`, and click `Finish`
 - Click `Generate` and wait for project generation to finish (may take a few minutes)

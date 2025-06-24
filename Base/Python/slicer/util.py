@@ -2981,7 +2981,7 @@ def tempDirectory(key="__SlicerTemp__", tempDir=None, includeDateTime=True):
 
     .. note:: This directory is not automatically cleaned up.
     """
-    # TODO: switch to QTemporaryDir in Qt5.
+    # TODO: switch to QTemporaryDir in Qt6.
     import qt, slicer
 
     if not tempDir:

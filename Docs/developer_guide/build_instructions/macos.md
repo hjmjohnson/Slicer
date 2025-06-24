@@ -50,7 +50,7 @@ cd /opt/s
 cmake \
   -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=13.0 \
   -DCMAKE_BUILD_TYPE:STRING=Debug \
-  -DQt5_DIR:PATH=/path/to/Qt/lib/cmake/Qt5 \
+  -DQt6_DIR:PATH=/path/to/Qt/lib/cmake/Qt6 \
   /path/to/source/code/of/Slicer
 ```
 

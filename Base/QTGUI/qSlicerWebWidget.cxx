@@ -318,7 +318,7 @@ QString qSlicerWebWidget::evalJS(const QString& js)
 {
   Q_D(qSlicerWebWidget);
 
-  // NOTE: Beginning Qt5.7, the call to runJavaScript are asynchronous,
+  // NOTE: Beginning Qt6.7, the call to runJavaScript are asynchronous,
   // and take a function (lambda) which is called once
   // the script evaluation is completed.
   // Connect to the "evalResult(QString,QString)" signal to get

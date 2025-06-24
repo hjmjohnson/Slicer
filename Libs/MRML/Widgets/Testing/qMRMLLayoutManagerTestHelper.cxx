@@ -45,7 +45,7 @@ bool checkViewArrangement(int line,
 // --------------------------------------------------------------------------
 
 // Note:
-// (1) Because of Qt5 issue #50160, we need to explicitly call the quit function.
+// (1) Because of Qt6 issue #50160, we need to explicitly call the quit function.
 //     This ensures that the workaround associated with qSlicerWebWidget is applied.
 //     See https://bugreports.qt.io/browse/QTBUG-50160#comment-305211
 

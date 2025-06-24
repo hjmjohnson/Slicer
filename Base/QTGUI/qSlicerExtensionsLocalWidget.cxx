@@ -303,7 +303,7 @@ QIcon qSlicerExtensionsLocalWidgetPrivate::extensionIcon(const QString& extensio
       QNetworkRequest req(extensionIconUrl);
 #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
       // Icons are hosted on random servers, which often use redirects (301 redirect) to get the actual download URL.
-      // In Qt6, redirects are followed by default, but it has to be manually enabled in Qt5.
+      // In Qt6, redirects are followed by default, but it has to be manually enabled in Qt6.
       req.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
 #endif
       QNetworkReply* const reply = this->IconDownloadManager.get(req);

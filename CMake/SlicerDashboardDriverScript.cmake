@@ -175,15 +175,15 @@ set(variables ${expected_variables})
 #-----------------------------------------------------------------------------
 # Handle Qt configuration
 #-----------------------------------------------------------------------------
-if(NOT DEFINED Qt5_DIR)
-  message(FATAL_ERROR "Qt5_DIR should be defined in top-level script")
+if(NOT DEFINED Qt6_DIR)
+  message(FATAL_ERROR "Qt6_DIR should be defined in top-level script")
 endif()
 if(DEFINED QT_QMAKE_EXECUTABLE)
   message(FATAL_ERROR "Setting QT_QMAKE_EXECUTABLE in top-level script is specific to Qt4 and is not supported anymore.")
 endif()
-if(DEFINED Qt5_DIR)
-  set(QT_CACHE_ENTRY "Qt5_DIR:PATH=${Qt5_DIR}")
-  list(APPEND variables Qt5_DIR)
+if(DEFINED Qt6_DIR)
+  set(QT_CACHE_ENTRY "Qt6_DIR:PATH=${Qt6_DIR}")
+  list(APPEND variables Qt6_DIR)
 endif()
 
 #-----------------------------------------------------------------------------

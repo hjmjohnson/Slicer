@@ -49,6 +49,17 @@ if(APPLE)
     message(FATAL_ERROR "CMAKE_OSX_DEPLOYMENT_TARGET ${CMAKE_OSX_DEPLOYMENT_TARGET} must be ${required_deployment_target} or greater.")
   endif()
 
+  if(NOT CMAKE_OSX_SYSROOT OR "${CMAKE_OSX_SYSROOT}" STREQUAL "")
+    # CMAKE_OSX_SYSROOT must be defined to compile OpenSSL 3.5.0
+    execute_process(
+      COMMAND xcrun --sdk macosx --show-sdk-path
+      OUTPUT_VARIABLE SDKROOT
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+    set(CMAKE_OSX_SYSROOT "${SDKROOT}" CACHE PATH "macOS SDK Path")
+    message(INFO "SETTING CMAKE_OSX_SYSROOT :${CMAKE_OSX_SYSROOT}:")
+  endif()
+
   if(NOT "${CMAKE_OSX_SYSROOT}" STREQUAL "")
     if(NOT EXISTS "${CMAKE_OSX_SYSROOT}")
       message(FATAL_ERROR "error: CMAKE_OSX_SYSROOT='${CMAKE_OSX_SYSROOT}' does not exist")

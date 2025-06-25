@@ -60,7 +60,7 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
 
     list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
       -DQt6_DIR:FILEPATH=${Qt6_DIR}
-      -DCTK_QT_VERSION:STRING=5
+      -DCTK_QT_VERSION:STRING=6
       )
 
   ExternalProject_SetIfNotDefined(
@@ -73,7 +73,8 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     Slicer_${proj}_GIT_TAG
     "ca28a23b93671114c419ab46930919c10756b1fc"
     #"ca28a23b93671114c419ab46930919c10756b1fc"
-    update-python-find-package # --hack for updating find_package(Python3) post cmake 3.12 recommended.
+    # update-python-find-package # --hack for updating find_package(Python3) post cmake 3.12 recommended.
+    initial-qt6-support # initial-qt6-support for qt6 support
     QUIET
     )
 

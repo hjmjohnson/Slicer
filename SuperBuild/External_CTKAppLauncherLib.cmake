@@ -20,13 +20,14 @@ if(NOT DEFINED CTKAppLauncherLib_DIR AND NOT Slicer_USE_SYSTEM_${proj})
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_REPOSITORY
-    "${EP_GIT_PROTOCOL}://github.com/commontk/AppLauncher.git"
+    #"${EP_GIT_PROTOCOL}://github.com/commontk/AppLauncher.git"
+    "${EP_GIT_PROTOCOL}://github.com/Slicer/AppLauncher.git" # temp hack
     QUIET
     )
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_TAG
-    "8759e03985738b8a8f3eb74ab516ba4e8ef29988"
+    slicer-qt6-preliminary-branch # temp patch for Qt6 slicer-qt6-preliminary-branch
     QUIET
     )
 

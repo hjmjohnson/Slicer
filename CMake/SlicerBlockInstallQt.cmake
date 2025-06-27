@@ -43,11 +43,9 @@ set(QT_INSTALL_LIB_DIR ${Slicer_INSTALL_LIB_DIR})
 
     find_package(Qt6 REQUIRED COMPONENTS
       DBus
-      X11Extras
       )
     list(APPEND QT_LIBRARIES
       "Qt6::DBus"
-      "Qt6::X11Extras"
       )
 
     # XcbQpa

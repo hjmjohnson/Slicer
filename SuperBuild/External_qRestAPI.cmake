@@ -22,18 +22,20 @@ if(NOT DEFINED qRestAPI_DIR)
   set(EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS)
     list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
       -DQt6_DIR:FILEPATH=${Qt6_DIR}
-      -DqRestAPI_QT_VERSION:STRING=5
+      -DqRestAPI_QT_VERSION:STRING=6
       )
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_REPOSITORY
-    "${EP_GIT_PROTOCOL}://github.com/commontk/qRestAPI.git"
+    #"${EP_GIT_PROTOCOL}://github.com/commontk/qRestAPI.git"
+    "${EP_GIT_PROTOCOL}://github.com/hjmjohnson/qRestAPI.git"
     QUIET
     )
 
   ExternalProject_SetIfNotDefined(
     Slicer_${proj}_GIT_TAG
-    "88c02c5d90169dfe065fa068969e59ada314d3cb"
+    #"88c02c5d90169dfe065fa068969e59ada314d3cb"
+    "slicer-2023-07-11-88c02c5d"
     QUIET
     )
 

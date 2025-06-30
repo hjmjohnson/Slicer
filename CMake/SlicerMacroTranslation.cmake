@@ -96,7 +96,7 @@ function(SlicerMacroTranslation)
       endforeach()
 
       if(EXISTING_TS_FILES)
-        QT5_ADD_TRANSLATION(QM_OUTPUT_FILES ${EXISTING_TS_FILES})
+        qt_add_translation(QM_OUTPUT_FILES ${EXISTING_TS_FILES})
       endif()
     endif()
 

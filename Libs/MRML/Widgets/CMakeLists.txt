@@ -385,13 +385,10 @@ if(Slicer_USE_QtTesting)
     )
 endif()
 
-  set(_moc_options OPTIONS -DMRML_WIDGETS_HAVE_QT5)
-  if(MRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
-    list(APPEND _moc_options -DMRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
-  endif()
-  QT5_WRAP_CPP(MRMLWidgets_MOC_CXX ${MRMLWidgets_MOC_SRCS} ${_moc_options})
-  QT5_WRAP_UI(MRMLWidgets_UI_CXX ${MRMLWidgets_UI_SRCS})
-  QT5_ADD_RESOURCES(MRMLWidgets_QRC_CXX ${MRMLWidgets_QRC_SRCS})
+add_definitions( -DMRML_WIDGETS_HAVE_QT5 )
+if(MRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
+  add_definitions(-DMRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
+endif()
 
 source_group("Resources" FILES
   ${MRMLWidgets_UI_SRCS}
@@ -399,9 +396,9 @@ source_group("Resources" FILES
   )
 
 source_group("Generated" FILES
-  ${MRMLWidgets_MOC_CXX}
-  ${MRMLWidgets_UI_CXX}
-  ${MRMLWidgets_QRC_CXX}
+  ${MRMLWidgets_MOC_SRCS}
+  ${MRMLWidgets_UI_SRCS}
+  ${MRMLWidgets_QRC_SRCS}
   )
 
 # --------------------------------------------------------------------------
@@ -461,9 +458,9 @@ set(targets_to_export ${lib_name})
 
 add_library(${lib_name}
   ${MRMLWidgets_SRCS}
-  ${MRMLWidgets_MOC_CXX}
-  ${MRMLWidgets_UI_CXX}
-  ${MRMLWidgets_QRC_CXX}
+  ${MRMLWidgets_MOC_SRCS}
+  ${MRMLWidgets_UI_SRCS}
+  ${MRMLWidgets_QRC_SRCS}
   ${QM_OUTPUT_FILES}
   )
 

@@ -138,19 +138,13 @@ macro(SlicerMacroBuildBaseQtLibrary)
   #-----------------------------------------------------------------------------
   # Sources
   # --------------------------------------------------------------------------
-    set(_moc_options OPTIONS -DSlicer_HAVE_QT5)
-    QT5_WRAP_CPP(SLICERQTBASELIB_MOC_OUTPUT ${SLICERQTBASELIB_MOC_SRCS} ${_moc_options})
-    QT5_WRAP_UI(SLICERQTBASELIB_UI_CXX ${SLICERQTBASELIB_UI_SRCS})
-    if(DEFINED SLICERQTBASELIB_RESOURCES)
-      QT5_ADD_RESOURCES(SLICERQTBASELIB_QRC_SRCS ${SLICERQTBASELIB_RESOURCES})
-    endif()
-
-    QT5_ADD_RESOURCES(SLICERQTBASELIB_QRC_SRCS ${Slicer_SOURCE_DIR}/Resources/qSlicer.qrc)
+    add_definitions(-DSlicer_HAVE_QT6)
+    list(APPEND SLICERQTBASELIB_RESOURCES ${Slicer_SOURCE_DIR}/Resources/qSlicer.qrc)
 
   set_source_files_properties(
-    ${SLICERQTBASELIB_UI_CXX}
-    ${SLICERQTBASELIB_MOC_OUTPUT}
-    ${SLICERQTBASELIB_QRC_SRCS}
+    ${SLICERQTBASELIB_UI_SRCS}
+    ${SLICERQTBASELIB_MOC_SRCS}
+    ${SLICERQTBASELIB_RESOURCES}
     WRAP_EXCLUDE
     )
 
@@ -164,9 +158,9 @@ macro(SlicerMacroBuildBaseQtLibrary)
   )
 
   source_group("Generated" FILES
-    ${SLICERQTBASELIB_UI_CXX}
-    ${SLICERQTBASELIB_MOC_OUTPUT}
-    ${SLICERQTBASELIB_QRC_SRCS}
+    ${SLICERQTBASELIB_UI_SRCS}
+    ${SLICERQTBASELIB_MOC_SRCS}
+    ${SLICERQTBASELIB_RESOURCES}
     ${dynamicHeaders}
   )
 
@@ -199,9 +193,9 @@ macro(SlicerMacroBuildBaseQtLibrary)
   # --------------------------------------------------------------------------
   add_library(${lib_name}
     ${SLICERQTBASELIB_SRCS}
-    ${SLICERQTBASELIB_MOC_OUTPUT}
-    ${SLICERQTBASELIB_UI_CXX}
-    ${SLICERQTBASELIB_QRC_SRCS}
+    ${SLICERQTBASELIB_MOC_SRCS}
+    ${SLICERQTBASELIB_UI_SRCS}
+    ${SLICERQTBASELIB_RESOURCES}
     ${QM_OUTPUT_FILES}
     )
   set_target_properties(${lib_name} PROPERTIES LABELS ${lib_name})

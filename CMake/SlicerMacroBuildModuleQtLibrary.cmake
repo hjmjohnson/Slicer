@@ -112,25 +112,16 @@ macro(SlicerMacroBuildModuleQtLibrary)
   #-----------------------------------------------------------------------------
   # Sources
   #-----------------------------------------------------------------------------
-  set(MODULEQTLIBRARY_MOC_OUTPUT)
-  set(MODULEQTLIBRARY_UI_CXX)
-  set(MODULEQTLIBRARY_QRC_SRCS)
   if(NOT EXISTS ${Slicer_LOGOS_RESOURCE})
     message("Warning, Slicer_LOGOS_RESOURCE doesn't exist: ${Slicer_LOGOS_RESOURCE}")
   endif()
-
-    set(_moc_options OPTIONS -DSlicer_HAVE_QT5)
-    QT5_WRAP_CPP(MODULEQTLIBRARY_MOC_OUTPUT ${MODULEQTLIBRARY_MOC_SRCS} ${_moc_options})
-    QT5_WRAP_UI(MODULEQTLIBRARY_UI_CXX ${MODULEQTLIBRARY_UI_SRCS})
-    if(DEFINED MODULEQTLIBRARY_RESOURCES AND NOT MODULEQTLIBRARY_RESOURCES STREQUAL "")
-      QT5_ADD_RESOURCES(MODULEQTLIBRARY_QRC_SRCS ${MODULEQTLIBRARY_RESOURCES})
-    endif()
-    QT5_ADD_RESOURCES(MODULEQTLIBRARY_QRC_SRCS ${Slicer_LOGOS_RESOURCE})
+  add_definitions(-DSlicer_HAVE_QT6)
+  list(APPEND MODULEQTLIBRARY_RESOURCES ${Slicer_LOGOS_RESOURCE})
 
   set_source_files_properties(
-    ${MODULEQTLIBRARY_UI_CXX}
-    ${MODULEQTLIBRARY_MOC_OUTPUT}
-    ${MODULEQTLIBRARY_QRC_SRCS}
+    ${MODULEQTLIBRARY_UI_SRCS}
+    ${MODULEQTLIBRARY_MOC_SRCS}
+    ${MODULEQTLIBRARY_RESOURCES}
     WRAP_EXCLUDE
     )
 
@@ -144,9 +135,9 @@ macro(SlicerMacroBuildModuleQtLibrary)
     )
 
   source_group("Generated" FILES
-    ${MODULEQTLIBRARY_UI_CXX}
-    ${MODULEQTLIBRARY_MOC_OUTPUT}
-    ${MODULEQTLIBRARY_QRC_SRCS}
+    ${MODULEQTLIBRARY_UI_SRCS}
+    ${MODULEQTLIBRARY_MOC_SRCS}
+    ${MODULEQTLIBRARY_RESOURCES}
     ${dynamicHeaders}
     )
 
@@ -155,9 +146,9 @@ macro(SlicerMacroBuildModuleQtLibrary)
   #-----------------------------------------------------------------------------
   add_library(${lib_name}
     ${MODULEQTLIBRARY_SRCS}
-    ${MODULEQTLIBRARY_MOC_OUTPUT}
-    ${MODULEQTLIBRARY_UI_CXX}
-    ${MODULEQTLIBRARY_QRC_SRCS}
+    ${MODULEQTLIBRARY_MOC_SRCS}
+    ${MODULEQTLIBRARY_UI_SRCS}
+    ${MODULEQTLIBRARY_RESOURCES}
     )
 
   # Set qt loadable modules output path

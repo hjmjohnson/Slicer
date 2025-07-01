@@ -22,7 +22,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStringList>
 #include <QUrl>
 
@@ -85,7 +85,7 @@ bool qSlicerUtils::isCLIScriptedExecutable(const QString& filePath)
 bool qSlicerUtils::isCLILoadableModule(const QString& filePath)
 {
   // See https://stackoverflow.com/questions/899422/regular-expression-for-a-string-that-does-not-start-with-a-sequence
-  QRegExp regex("(lib.+Lib\\.(so|dylib))|((?!lib).+Lib\\.(dll|DLL))");
+  QRegularExpression regex("(lib.+Lib\\.(so|dylib))|((?!lib).+Lib\\.(dll|DLL))");
   return regex.exactMatch(QFileInfo(filePath).fileName());
 }
 
@@ -93,7 +93,7 @@ bool qSlicerUtils::isCLILoadableModule(const QString& filePath)
 bool qSlicerUtils::isLoadableModule(const QString& filePath)
 {
   // See https://stackoverflow.com/questions/899422/regular-expression-for-a-string-that-does-not-start-with-a-sequence
-  QRegExp regex("(libqSlicer.+Module\\.(so|dylib))|((?!lib)qSlicer.+Module\\.(dll|DLL))");
+  QRegularExpression regex("(libqSlicer.+Module\\.(so|dylib))|((?!lib)qSlicer.+Module\\.(dll|DLL))");
   return regex.exactMatch(QFileInfo(filePath).fileName());
 }
 
@@ -314,14 +314,15 @@ bool qSlicerUtils::setPermissionsRecursively(const QString& path,
 QString qSlicerUtils::replaceWikiUrlVersion(const QString& text, const QString& version)
 {
   QString updatedText = text;
-  QRegExp rx("http[s]?\\:\\/\\/[a-zA-Z0-9\\-\\._\\?\\,\\'\\/\\\\\\+&amp;%\\$#\\=~]*");
+  QRegularExpression rx("http[s]?\\:\\/\\/[a-zA-Z0-9\\-\\._\\?\\,\\'\\/\\\\\\+&amp;%\\$#\\=~]*");
   int pos = 0;
   while ((pos = rx.indexIn(updatedText, pos)) != -1)
   {
     // Given an URL matching the regular expression reported above, this second
     // expression will replace the first occurrence of "Documentation/<StringWithLetterOrNumberOrDot>/"
     // with "Documentation/<version>/"
-    QString updatedURL = rx.cap(0).replace(QRegExp("Documentation\\/[a-zA-Z0-9\\.]+"), "Documentation/" + version);
+    QString updatedURL =
+      rx.cap(0).replace(QRegularExpression("Documentation\\/[a-zA-Z0-9\\.]+"), "Documentation/" + version);
     updatedText.replace(pos, rx.matchedLength(), updatedURL);
     pos += updatedURL.length();
   }
@@ -331,7 +332,7 @@ QString qSlicerUtils::replaceWikiUrlVersion(const QString& text, const QString& 
 
 bool replaceFirst(QString& text, const QString& pattern, const QString& replacement)
 {
-  QRegExp rx = QRegExp(pattern);
+  QRegularExpression rx = QRegularExpression(pattern);
   if (!text.contains(rx))
   {
     return false;
@@ -346,7 +347,7 @@ QString qSlicerUtils::replaceDocumentationUrlVersion(const QString& text,
                                                      const QString& version)
 {
   QString updatedText = text;
-  QRegExp rx("http[s]?\\:\\/\\/[a-zA-Z0-9\\-\\._\\?\\,\\'\\/\\\\\\+&amp;%\\$#\\=~]*");
+  QRegularExpression rx("http[s]?\\:\\/\\/[a-zA-Z0-9\\-\\._\\?\\,\\'\\/\\\\\\+&amp;%\\$#\\=~]*");
   int pos = 0;
   while ((pos = rx.indexIn(updatedText, pos)) != -1)
   {

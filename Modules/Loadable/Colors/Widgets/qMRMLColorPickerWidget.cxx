@@ -193,7 +193,7 @@ void qMRMLColorPickerWidget::onCurrentColorNodeChanged(vtkMRMLNode* colorNode)
 void qMRMLColorPickerWidget::onTextChanged(const QString& colorText)
 {
   Q_D(qMRMLColorPickerWidget);
-  QRegExp regExp(colorText, Qt::CaseInsensitive, QRegExp::RegExp);
+  QRegularExpression regExp(colorText, Qt::CaseInsensitive, QRegularExpression::RegExp);
   d->MRMLColorListView->sortFilterProxyModel()->setFilterRegExp(regExp);
 
   QModelIndex newCurrentIndex;

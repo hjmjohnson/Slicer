@@ -92,7 +92,7 @@ bool qMRMLItemDelegate::is0To1Value(const QModelIndex& index) const
   {
     return false;
   }
-  QRegExp regExp0To1With2Decimals("[01]\\.[0-9][0-9]");
+  QRegularExpression regExp0To1With2Decimals("[01]\\.[0-9][0-9]");
   bool res = regExp0To1With2Decimals.exactMatch(editData.toString());
   return res;
 }

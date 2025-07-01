@@ -173,7 +173,7 @@ QList<qSlicerFileWriter*> qSlicerCoreIOManagerPrivate::writers(const qSlicerIO::
         {
           extensionWithStar.prepend("*");
         }
-        QRegExp regExp(extensionWithStar, Qt::CaseInsensitive, QRegExp::Wildcard);
+        QRegularExpression regExp(extensionWithStar, Qt::CaseInsensitive, QRegularExpression::Wildcard);
         Q_ASSERT(regExp.isValid());
         if (regExp.exactMatch(file.absoluteFilePath()))
         {
@@ -453,9 +453,9 @@ QStringList qSlicerCoreIOManager::allReadableFileExtensions() const
 }
 
 //-----------------------------------------------------------------------------
-QRegExp qSlicerCoreIOManager::fileNameRegExp(const QString& extension /*= QString()*/)
+QRegularExpression qSlicerCoreIOManager::fileNameRegExp(const QString& extension /*= QString()*/)
 {
-  QRegExp regExp("[A-Za-z0-9\\ \\-\\_\\.\\(\\)\\$\\!\\~\\#\\'\\%\\^\\{\\}]{1,255}");
+  QRegularExpression regExp("[A-Za-z0-9\\ \\-\\_\\.\\(\\)\\$\\!\\~\\#\\'\\%\\^\\{\\}]{1,255}");
 
   if (!extension.isEmpty())
   {
@@ -469,7 +469,7 @@ QString qSlicerCoreIOManager::forceFileNameValidCharacters(const QString& filena
 {
   // Remove characters that are likely to cause problems in filename
   QString sanitizedFilename;
-  QRegExp regExp = fileNameRegExp();
+  QRegularExpression regExp = fileNameRegExp();
 
   for (int i = 0; i < filename.size(); ++i)
   {

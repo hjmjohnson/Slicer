@@ -117,11 +117,11 @@ void qSlicerAnnotationsIOOptionsWidget::setFileNames(const QStringList& fileName
     }
     // Because '_' is considered as a word character (\w), \b
     // doesn't consider '_' as a word boundary.
-    QRegExp fiducialName("(\\b|_)(F)(\\b|_)");
-    QRegExp rulerName("(\\b|_)(M)(\\b|_)");
-    QRegExp roiName("(\\b|_)(R)(\\b|_)");
+    QRegularExpression fiducialName("(\\b|_)(F)(\\b|_)");
+    QRegularExpression rulerName("(\\b|_)(M)(\\b|_)");
+    QRegularExpression roiName("(\\b|_)(R)(\\b|_)");
     QAbstractButton* activeButton = nullptr;
-    /*    QRegExp listName("(\\b|_)(List)(\\b|_)");
+    /*    QRegularExpression listName("(\\b|_)(List)(\\b|_)");
         if (fileInfo.baseName().contains(listName))
           {
           d->ListRadioButton->setChecked(true);

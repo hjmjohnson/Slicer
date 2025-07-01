@@ -78,7 +78,7 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     #"ca28a23b93671114c419ab46930919c10756b1fc"
     # update-python-find-package # --hack for updating find_package(Python3) post cmake 3.12 recommended.
     #initial-qt6-support # initial-qt6-support for qt6 support
-    update-qt5-toqt6-QRegExp
+    update-qt5-toqt6-QRegularExpression
     QUIET
     )
 

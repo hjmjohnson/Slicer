@@ -26,8 +26,8 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
-#include <QRegExp>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QSettings>
 
 /// CTK includes

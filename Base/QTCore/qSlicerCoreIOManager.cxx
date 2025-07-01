@@ -24,6 +24,7 @@
 #include <QElapsedTimer>
 #include <QFileInfo>
 #include <QSettings>
+#include <QRegularExpression>
 
 // CTK includes
 #include <ctkUtils.h>

@@ -26,6 +26,7 @@
 #include <QVector>
 #include <QIcon>
 #include <QPixmap>
+#include <QObject>
 
 #include "vtkIdList.h"
 #include "qMRMLWidgetsExport.h"

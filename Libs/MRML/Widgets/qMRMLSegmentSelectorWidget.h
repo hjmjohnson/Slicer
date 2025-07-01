@@ -23,6 +23,8 @@
 #ifndef __qMRMLSegmentSelectorWidget_h
 #define __qMRMLSegmentSelectorWidget_h
 
+#include <QStringList>
+
 // qMRMLWidgets includes
 #include "qMRMLWidget.h"
 #include "qMRMLWidgetsExport.h"
@@ -35,7 +37,6 @@ class vtkMRMLNode;
 class qMRMLSegmentSelectorWidgetPrivate;
 class QTableWidgetItem;
 class QItemSelection;
-class QStringList;
 
 /// \brief Qt widget for selecting a single segment from a segmentation.
 ///   If multiple segments are needed, then use \sa qMRMLSegmentsTableView instead in SimpleListMode

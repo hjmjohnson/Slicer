@@ -20,6 +20,7 @@
 
 /// Qt includes
 #include <QFileInfo>
+#include <QRegularExpression>
 
 // CTK includes
 #include <ctkUtils.h>
@@ -91,9 +92,9 @@ QStringList qSlicerFileReader::supportedNameFilters(const QString& fileName,
   {
     foreach (QString extension, ctk::nameFilterToExtensions(nameFilter))
     {
-      QRegularExpression regExp(extension, Qt::CaseInsensitive, QRegularExpression::Wildcard);
+      QRegularExpression regExp = QRegularExpression::fromWildcard(extension, Qt::CaseInsensitive);
       Q_ASSERT(regExp.isValid());
-      if (regExp.exactMatch(file.absoluteFilePath()))
+      if (regExp.match(file.absoluteFilePath()).hasMatch())
       {
         extension.remove('*'); // wildcard does not count, that's not a specific match
         int matchedExtensionLength = extension.size();

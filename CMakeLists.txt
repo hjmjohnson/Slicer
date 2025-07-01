@@ -655,7 +655,12 @@ endif()
       )
   endif()
 
-  find_package(Qt6 COMPONENTS Core Core5Compat StateMachine QUIET)
+  # HACK: Perhaps more than needed, but will make minimal after initial
+  # working version is found.  Rebuilds take too long to add these
+  # one at a time.
+  find_package(Qt6 COMPONENTS Core Core5Compat StateMachine
+          WebEngineWidgets Script Designer Network WebEngineView
+          Svg Xml Concurrent Sql Test Multimedia Widgets OpenGL QUIET)
   #  if(Slicer_BUILD_WEBENGINE_SUPPORT)
   #  list(APPEND Slicer_REQUIRED_QT_MODULES
   #    WebEngine

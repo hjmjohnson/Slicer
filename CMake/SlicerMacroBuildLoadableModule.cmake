@@ -128,7 +128,7 @@ macro(slicerMacroBuildLoadableModule)
     message("Warning, Slicer_LOGOS_RESOURCE doesn't exist: ${Slicer_LOGOS_RESOURCE}")
   endif()
 
-  add_definitions(-DSlicer_HAVE_QT6)
+  add_definitions(-DSlicer_HAVE_QT5_OR_QT6)
   list(APPEND LOADABLEMODULE_RESOURCES ${Slicer_LOGOS_RESOURCE})
 
   set_source_files_properties(

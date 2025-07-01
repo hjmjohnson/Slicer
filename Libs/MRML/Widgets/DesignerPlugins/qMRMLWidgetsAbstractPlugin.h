@@ -21,10 +21,10 @@
 #ifndef __qMRMLWidgetsAbstractPlugin_h
 #define __qMRMLWidgetsAbstractPlugin_h
 
-#include "qMRMLWidgetsConfigure.h" // For MRML_WIDGETS_HAVE_QT5
+#include "qMRMLWidgetsConfigure.h" // For MRML_WIDGETS_HAVE_QT5_OR_QT6
 
 // Qt includes
-#ifdef MRML_WIDGETS_HAVE_QT5
+#ifdef MRML_WIDGETS_HAVE_QT5_OR_QT6
 # include <QtUiPlugin/QDesignerCustomWidgetInterface>
 #else
 # include <QDesignerCustomWidgetInterface>
@@ -34,7 +34,7 @@
 
 class QMRML_WIDGETS_PLUGINS_EXPORT qMRMLWidgetsAbstractPlugin : public QDesignerCustomWidgetInterface
 {
-#ifdef MRML_WIDGETS_HAVE_QT5
+#ifdef MRML_WIDGETS_HAVE_QT5_OR_QT6
   Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface")
 #endif
   Q_INTERFACES(QDesignerCustomWidgetInterface);

@@ -138,7 +138,7 @@ macro(SlicerMacroBuildBaseQtLibrary)
   #-----------------------------------------------------------------------------
   # Sources
   # --------------------------------------------------------------------------
-    add_definitions(-DSlicer_HAVE_QT6)
+    add_definitions(-DSlicer_HAVE_QT5_OR_QT6)
     list(APPEND SLICERQTBASELIB_RESOURCES ${Slicer_SOURCE_DIR}/Resources/qSlicer.qrc)
 
   set_source_files_properties(

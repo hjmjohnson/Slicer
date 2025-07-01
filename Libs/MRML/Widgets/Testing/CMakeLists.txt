@@ -148,7 +148,7 @@ set(KIT_TEST_GENERATE_MOC_SRCS
   qMRMLSliceControllerWidgetTest.cxx
   )
 
-  add_definitions(-DMRML_WIDGETS_HAVE_QT5)
+  add_definitions(-DMRML_WIDGETS_HAVE_QT5_OR_QT6)
   list(APPEND Tests_MOC_SRCS ${KIT_TEST_GENERATE_MOC_SRCS})
 
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})

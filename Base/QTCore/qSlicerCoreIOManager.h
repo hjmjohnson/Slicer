@@ -105,7 +105,7 @@ public:
   /// extension. Example of supported extensions:
   /// "", "*", ".*", ".jpg", ".png" ".tar.gz"...
   /// An empty extension or "*" means any filename (or directory) is valid
-  Q_INVOKABLE static QRegExp fileNameRegExp(const QString& extension = QString());
+  Q_INVOKABLE static QRegularExpression fileNameRegExp(const QString& extension = QString());
 
   /// Remove characters that are likely to cause problems in a filename
   Q_INVOKABLE static QString forceFileNameValidCharacters(const QString& filename);

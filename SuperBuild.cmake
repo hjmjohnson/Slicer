@@ -229,8 +229,10 @@ option(Slicer_BUILD_MULTIVOLUME_SUPPORT "Build MultiVolume support." ON)
 mark_as_advanced(Slicer_BUILD_MULTIVOLUME_SUPPORT)
 
 Slicer_Remote_Add(MultiVolumeExplorer
-  GIT_REPOSITORY ${EP_GIT_PROTOCOL}://github.com/fedorov/MultiVolumeExplorer.git
-  GIT_TAG 543f5bc46444a83474b185f4aa9c9d2a916ed09b # 20250702
+  #GIT_REPOSITORY ${EP_GIT_PROTOCOL}://github.com/fedorov/MultiVolumeExplorer.git
+  #GIT_TAG 36102fd0ffae409319c0a0fee71dde1df64fe9e0
+  GIT_REPOSITORY ${EP_GIT_PROTOCOL}://github.com/hjmjohnson/MultiVolumeExplorer.git
+  GIT_TAG remove-support-for-pre-qt5
   OPTION_NAME Slicer_BUILD_MultiVolumeExplorer
   OPTION_DEPENDS "Slicer_BUILD_QTLOADABLEMODULES;Slicer_BUILD_MULTIVOLUME_SUPPORT;Slicer_USE_PYTHONQT"
   LABELS REMOTE_MODULE

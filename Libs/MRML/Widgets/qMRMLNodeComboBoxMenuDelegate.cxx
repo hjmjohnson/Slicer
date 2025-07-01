@@ -128,33 +128,53 @@ QStyleOptionMenuItem qMRMLNodeComboBoxMenuDelegate::getStyleOption(const QStyleO
       menuOption.icon = pixmap;
       break;
     }
-    default:
-      menuOption.icon = qvariant_cast<QPixmap>(variant);
-      break;
-  }
-  if (index.data(Qt::BackgroundRole).canConvert(QMetaType::QBrush))
-  {
-    menuOption.palette.setBrush(QPalette::All, QPalette::Window, qvariant_cast<QBrush>(index.data(Qt::BackgroundRole)));
-  }
-  menuOption.text =
-    index.model()->data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
-  menuOption.tabWidth = 0;
-  menuOption.maxIconWidth = option.decorationSize.width() + 4;
-  menuOption.menuRect = option.rect;
-  menuOption.rect = option.rect;
+      else
+      {
+        menuOption.menuItemType = QStyleOptionMenuItem::Normal;
+      }
+      QVariant variant = index.model()->data(index, Qt::DecorationRole);
+      switch (variant.type())
+      {
+        case QVariant::Icon:
+          menuOption.icon = qvariant_cast<QIcon>(variant);
+          break;
+        case QVariant::Color:
+        {
+          static QPixmap pixmap(option.decorationSize);
+          pixmap.fill(qvariant_cast<QColor>(variant));
+          menuOption.icon = pixmap;
+          break;
+        }
+        default:
+          menuOption.icon = qvariant_cast<QPixmap>(variant);
+          break;
+      }
+      if (index.data(Qt::BackgroundRole).canConvert(QMetaType::QBrush))
+      {
+        menuOption.palette.setBrush(
+          QPalette::All, QPalette::Window, qvariant_cast<QBrush>(index.data(Qt::BackgroundRole)));
+      }
+      menuOption.text =
+        index.model()->data(index, Qt::DisplayRole).toString().replace(QLatin1Char('&'), QLatin1String("&&"));
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+      menuOption.tabWidth = 0;
+#endif
+      menuOption.maxIconWidth = option.decorationSize.width() + 4;
+      menuOption.menuRect = option.rect;
+      menuOption.rect = option.rect;
 
-  // Make sure fonts set on the combo box also overrides the font for the popup menu.
-  if (this->mCombo->testAttribute(Qt::WA_SetFont) || this->mCombo->testAttribute(Qt::WA_MacSmallSize)
-      || this->mCombo->testAttribute(Qt::WA_MacMiniSize) || this->mCombo->font() != QFont())
-  {
-    menuOption.font = this->mCombo->font();
-  }
-  else
-  {
-    menuOption.font = this->mCombo->font();
-  }
+      // Make sure fonts set on the combo box also overrides the font for the popup menu.
+      if (this->mCombo->testAttribute(Qt::WA_SetFont) || this->mCombo->testAttribute(Qt::WA_MacSmallSize)
+          || this->mCombo->testAttribute(Qt::WA_MacMiniSize) || this->mCombo->font() != QFont())
+      {
+        menuOption.font = this->mCombo->font();
+      }
+      else
+      {
+        menuOption.font = this->mCombo->font();
+      }
 
-  menuOption.fontMetrics = QFontMetrics(menuOption.font);
+      menuOption.fontMetrics = QFontMetrics(menuOption.font);
 
-  return menuOption;
-}
+      return menuOption;
+  }

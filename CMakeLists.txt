@@ -646,6 +646,10 @@ endif()
     UiTools #no dll
     Xml
     Svg Sql
+    # For Qt6 transition
+    Core5Compat StateMachine
+    WebEngineWidgets Designer
+    Concurrent Test
     )
 
   if(Slicer_BUILD_MULTIMEDIA_SUPPORT)
@@ -659,7 +663,7 @@ endif()
   # working version is found.  Rebuilds take too long to add these
   # one at a time.
   find_package(Qt6 COMPONENTS Core Core5Compat StateMachine
-          WebEngineWidgets Script Designer Network WebEngineView
+          WebEngineWidgets Script Designer Network
           Svg Xml Concurrent Sql Test Multimedia Widgets OpenGL QUIET)
   #  if(Slicer_BUILD_WEBENGINE_SUPPORT)
   #  list(APPEND Slicer_REQUIRED_QT_MODULES

@@ -141,14 +141,15 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     )
 
   if(Slicer_USE_PYTHONQT)
-    if(APPLE)
-      ExternalProject_Add_Step(${proj} fix_pythonqt_rpath
-        COMMAND install_name_tool
-          -id ${EP_BINARY_DIR}/CMakeExternals/Install/lib/libPythonQt.dylib
-          ${EP_BINARY_DIR}/CMakeExternals/Install/lib/libPythonQt.dylib
-        DEPENDEES build
-        )
-    endif()
+          #Hack disable,  Need to make PythonQt dynamically built
+#      if(APPLE)
+#      ExternalProject_Add_Step(${proj} fix_pythonqt_rpath
+#        COMMAND install_name_tool
+#          -id ${EP_BINARY_DIR}/CMakeExternals/Install/lib/libPythonQt-Qt6.9-Python3.12.a
+#              ${EP_BINARY_DIR}/CMakeExternals/Install/lib/libPythonQt-Qt6.9-Python3.12.a
+#        DEPENDEES build
+#        )
+#    endif()
   endif()
 
   ExternalProject_GenerateProjectDescription_Step(${proj})

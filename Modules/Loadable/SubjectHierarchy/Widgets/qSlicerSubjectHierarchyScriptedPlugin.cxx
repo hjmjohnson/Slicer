@@ -368,7 +368,7 @@ QList<QAction*> qSlicerSubjectHierarchyScriptedPlugin::itemContextMenuActions()c
   }
 
   // Parse result
-  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QVariant::List);
+  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QMetaType::QVariantList);
   if (resultVariant.isNull())
   {
     return this->Superclass::itemContextMenuActions();
@@ -395,7 +395,7 @@ QList<QAction*> qSlicerSubjectHierarchyScriptedPlugin::viewContextMenuActions()c
   }
 
   // Parse result
-  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QVariant::List);
+  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QMetaType::QVariantList);
   if (resultVariant.isNull())
   {
     return this->Superclass::viewContextMenuActions();
@@ -422,7 +422,7 @@ QList<QAction*> qSlicerSubjectHierarchyScriptedPlugin::sceneContextMenuActions()
   }
 
   // Parse result
-  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QVariant::List);
+  QVariant resultVariant = PythonQtConv::PyObjToQVariant(result, QMetaType::QVariantList);
   if (resultVariant.isNull())
   {
     return this->Superclass::sceneContextMenuActions();

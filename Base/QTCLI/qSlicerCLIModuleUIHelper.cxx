@@ -1165,20 +1165,20 @@ void qSlicerCLIModuleUIHelper::setCommandLineModuleParameter(vtkMRMLCommandLineM
                                                              const QVariant& value)
 {
   Q_D(qSlicerCLIModuleUIHelper);
-  QVariant::Type type = value.type();
-  if (type == QVariant::Bool)
+  QMetaType::Type type = value.type();
+  if (type == QMetaType::Bool)
   {
     commandLineModuleNode->SetParameterAsBool(name.toUtf8(), value.toBool());
   }
-  else if (type == QVariant::Int)
+  else if (type == QMetaType::Int)
   {
     commandLineModuleNode->SetParameterAsInt(name.toUtf8(), value.toInt());
   }
-  else if (type == QVariant::Double)
+  else if (type == QMetaType::Double)
   {
     commandLineModuleNode->SetParameterAsDouble(name.toUtf8(), value.toDouble());
   }
-  else if (type == QVariant::String)
+  else if (type == QMetaType::QString)
   {
     QString valueAsString = value.toString();
     vtkMRMLNode* node = nullptr;

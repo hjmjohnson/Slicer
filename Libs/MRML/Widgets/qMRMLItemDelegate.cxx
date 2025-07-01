@@ -88,7 +88,7 @@ int qMRMLItemDelegate::colorRole(const QModelIndex& index) const
 bool qMRMLItemDelegate::is0To1Value(const QModelIndex& index) const
 {
   QVariant editData = index.data(Qt::EditRole);
-  if (editData.type() != QVariant::String)
+  if (editData.type() != QMetaType::QString)
   {
     return false;
   }

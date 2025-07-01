@@ -94,30 +94,30 @@ void qSlicerCommandOptions::addArguments()
 {
   this->Superclass::addArguments();
 
-  this->addArgument("disable-tooltips", "", QVariant::Bool, "Disable toolstips in the user interface.");
+  this->addArgument("disable-tooltips", "", QMetaType::Bool, "Disable toolstips in the user interface.");
 
-  this->addArgument("no-splash", "", QVariant::Bool, "Disable the startup splash screen.");
+  this->addArgument("no-splash", "", QMetaType::Bool, "Disable the startup splash screen.");
 
   this->addArgument("no-main-window",
                     "",
-                    QVariant::Bool,
+                    QMetaType::Bool,
                     "Disable display of the main slicer window.  Use with --python-script for alternate interface");
 
 #ifdef Slicer_USE_PYTHONQT
   if (!qSlicerCoreApplication::testAttribute(qSlicerCoreApplication::AA_DisablePython))
   {
-    this->addArgument("show-python-console", "", QVariant::Bool, "Show Python console at startup.");
+    this->addArgument("show-python-console", "", QMetaType::Bool, "Show Python console at startup.");
     this->addArgument("show-python-interactor",
                       "",
-                      QVariant::Bool,
+                      QMetaType::Bool,
                       "Show Python console at startup (deprecated, use show-python-console instead).");
   }
 #endif
 
 #ifdef Slicer_USE_QtTesting
-  this->addArgument("qt-testing", "", QVariant::Bool, "Enable QtTesting in the user interface");
+  this->addArgument("qt-testing", "", QMetaType::Bool, "Enable QtTesting in the user interface");
 #endif
 
   this->addArgument(
-    "exit-after-startup", "", QVariant::Bool, "Exit after startup is complete. Useful for measuring startup time");
+    "exit-after-startup", "", QMetaType::Bool, "Exit after startup is complete. Useful for measuring startup time");
 }

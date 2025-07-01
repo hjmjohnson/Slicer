@@ -325,7 +325,7 @@ QStandardItem* qMRMLSubjectHierarchyModel::subjectHierarchySceneItem() const
       continue;
     }
     QVariant uid = child->data(qMRMLSubjectHierarchyModel::SubjectHierarchyItemIDRole);
-    if (uid.type() == QVariant::LongLong && uid == d->SubjectHierarchyNode->GetSceneItemID())
+    if (uid.type() == QMetaType::LongLong && uid == d->SubjectHierarchyNode->GetSceneItemID())
     {
       return child;
     }

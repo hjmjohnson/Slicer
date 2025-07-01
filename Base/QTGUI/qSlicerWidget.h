@@ -30,9 +30,9 @@
 
 #include "qSlicerObject.h"
 #include "qSlicerBaseQTGUIExport.h"
+#include "vtkMRMLScene.h"
 
 class vtkMRMLAbstractLogic;
-class vtkMRMLScene;
 class vtkSlicerApplicationLogic;
 class QScrollArea;
 class qSlicerWidgetPrivate;

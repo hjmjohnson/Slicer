@@ -29,6 +29,8 @@
 #include <QObject>
 #include <QString>
 #include <QVariantMap>
+#include <QRegularExpression>
+
 
 // CTK includes
 #include <ctkPimpl.h>

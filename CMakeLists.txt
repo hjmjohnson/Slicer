@@ -655,7 +655,7 @@ endif()
       )
   endif()
 
-  find_package(Qt6 COMPONENTS Core QUIET)
+  find_package(Qt6 COMPONENTS Core Core5Compat StateMachine QUIET)
   #  if(Slicer_BUILD_WEBENGINE_SUPPORT)
   #  list(APPEND Slicer_REQUIRED_QT_MODULES
   #    WebEngine

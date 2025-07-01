@@ -116,12 +116,21 @@ QList<qSlicerFileReader*> qSlicerCoreIOManagerPrivate::readers(const QString& fi
   }
   // Put matching readers in a list, with highest confidence readers pushed to the front
   QList<qSlicerFileReader*> matchingReaders;
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+  auto i = matchingReadersSortedByConfidence.constBegin();
+  while (i != matchingReadersSortedByConfidence.constEnd())
+  {
+    ++i; // WHY SKIP THE FIRST ITEM?
+    matchingReaders.push_front(i.value());
+  }
+#else
   QMapIterator<double, qSlicerFileReader*> i(matchingReadersSortedByConfidence);
   while (i.hasNext())
   {
     i.next();
     matchingReaders.push_front(i.value());
   }
+#endif
   return matchingReaders;
 }
 

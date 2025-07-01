@@ -141,7 +141,7 @@ macro(slicerMacroBuildAppLibrary)
   #-----------------------------------------------------------------------------
   # Sources
   # --------------------------------------------------------------------------
-  add_definitions(-DSlicer_HAVE_QT6)
+  add_definitions(-DSlicer_HAVE_QT5_OR_QT6)
 
   set_source_files_properties(
     ${SLICERAPPLIB_UI_SRCS}

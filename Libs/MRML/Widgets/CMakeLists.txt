@@ -45,7 +45,7 @@ endif()
 # --------------------------------------------------------------------------
 # Configure headers
 # --------------------------------------------------------------------------
-set(MRML_WIDGETS_HAVE_QT5 1)
+set(MRML_WIDGETS_HAVE_QT5_OR_QT6 1)
 if(NOT DEFINED MRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
   set(MRML_WIDGETS_HAVE_WEBENGINE_SUPPORT 1)
 endif()
@@ -385,7 +385,7 @@ if(Slicer_USE_QtTesting)
     )
 endif()
 
-add_definitions( -DMRML_WIDGETS_HAVE_QT5 )
+add_definitions( -DMRML_WIDGETS_HAVE_QT5_OR_QT6 )
 if(MRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
   add_definitions(-DMRML_WIDGETS_HAVE_WEBENGINE_SUPPORT)
 endif()

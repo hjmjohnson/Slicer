@@ -26,7 +26,7 @@ set(KIT_TEST_GENERATE_MOC_SRCS
   qMRMLMarkupsOptionsWidgetsFactoryTest.cxx
   )
 
-add_definitions(-DMRML_WIDGETS_HAVE_QT5)
+add_definitions(-DMRML_WIDGETS_HAVE_QT5_OR_QT6)
 
 include_directories( ${CMAKE_CURRENT_BINARY_DIR})
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR})

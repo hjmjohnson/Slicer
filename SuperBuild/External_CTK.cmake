@@ -39,10 +39,13 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
       -DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY}
       -DPYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE_DIR}
       -DPython3_EXECUTABLE:FILEPATH=${Python3_EXECUTABLE}
+      -DPython3_INTERPRETER:FILEPATH=${Python3_EXECUTABLE}
+      -DPython3_FIND_STRATEGY:STRING=LOCATION
       )
     list(APPEND EXTERNAL_PROJECT_OPTIONAL_CMAKE_CACHE_ARGS
       # Required by FindPython3 CMake module used by VTK
       -DPython3_ROOT_DIR:PATH=${Python3_ROOT_DIR}
+      -DPython3_DIR:PATH=${Python3_ROOT_DIR}/share/python3.12 # Where to find PythonConfig.cmake file
       -DPython3_INCLUDE_DIR:PATH=${Python3_INCLUDE_DIR}
       -DPython3_LIBRARY:FILEPATH=${Python3_LIBRARY}
       -DPython3_LIBRARY_DEBUG:FILEPATH=${Python3_LIBRARY_DEBUG}
@@ -73,7 +76,8 @@ if(NOT DEFINED CTK_DIR AND NOT Slicer_USE_SYSTEM_${proj})
     Slicer_${proj}_GIT_TAG
     #"ca28a23b93671114c419ab46930919c10756b1fc"
     # update-python-find-package # --hack for updating find_package(Python3) post cmake 3.12 recommended.
-    initial-qt6-support # initial-qt6-support for qt6 support
+    #initial-qt6-support # initial-qt6-support for qt6 support
+    update-qt5-toqt6-QRegExp
     QUIET
     )
 

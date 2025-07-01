@@ -195,8 +195,8 @@ mark_as_superbuild(Patch_EXECUTABLE)
 # Qt requirements
 #-----------------------------------------------------------------------------
 if(NOT DEFINED Slicer_REQUIRED_QT_VERSION)
-  # Official builds and tests are performed with Qt-6.9.1 on all platforms,
-  set(_required_qt_version "6.9.1")
+  # Official builds and tests are performed with Qt-6.4.2 on all platforms,
+  set(_required_qt_version "6.4.2")
   set(Slicer_REQUIRED_QT_VERSION ${_required_qt_version} CACHE STRING "Minimum required Qt version" FORCE)
 endif()
 mark_as_superbuild(Slicer_REQUIRED_QT_VERSION)

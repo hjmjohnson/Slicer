@@ -268,13 +268,15 @@ option(Slicer_USE_VTK_DEBUG_LEAKS "Enable VTKs Debug Leaks functionality in both
 mark_as_superbuild(Slicer_USE_VTK_DEBUG_LEAKS:BOOL)
 set(VTK_DEBUG_LEAKS ${Slicer_USE_VTK_DEBUG_LEAKS})
 
-option(Slicer_BUILD_DICOM_SUPPORT "Build Slicer with DICOM support" ON)
+set(HACK_NO_DICOM_SUPPORT OFF) # CTK dicom support does not build with Qt6 yet
+option(Slicer_BUILD_DICOM_SUPPORT "Build Slicer with DICOM support" ${HACK_NO_DICOM_SUPPORT})
 mark_as_superbuild(Slicer_BUILD_DICOM_SUPPORT)
 
 option(Slicer_BUILD_DIFFUSION_SUPPORT "Build Slicer with diffusion (DWI, DTI) support" ON)
 mark_as_superbuild(Slicer_BUILD_DIFFUSION_SUPPORT)
 
-option(Slicer_BUILD_I18N_SUPPORT "Build Slicer with Internationalization support" ON)
+set(HACK_NO_Slicer_BUILD_I18N_SUPPORT OFF) # Some of the tools are not availble on mac with qt install
+option(Slicer_BUILD_I18N_SUPPORT "Build Slicer with Internationalization support" ${HACK_NO_Slicer_BUILD_I18N_SUPPORT})
 mark_as_superbuild(Slicer_BUILD_I18N_SUPPORT)
 
 option(Slicer_BUILD_USAGE_LOGGING_SUPPORT "Build Slicer with support for software usage logging" ON)
@@ -309,7 +311,8 @@ CMAKE_DEPENDENT_OPTION(
   "Slicer_BUILD_CLI" OFF
   )
 
-option(Slicer_BUILD_QT_DESIGNER_PLUGINS "Build Qt designer plugins" ON)
+set(HACK_ALWAYS_OFF_Slicer_BUILD_QT_DESIGNER_PLUGINS OFF)
+option(Slicer_BUILD_QT_DESIGNER_PLUGINS "Build Qt designer plugins" ${HACK_ALWAYS_OFF_Slicer_BUILD_QT_DESIGNER_PLUGINS})
 mark_as_superbuild(Slicer_BUILD_QT_DESIGNER_PLUGINS)
 
 option(Slicer_BUILD_EXTENSIONMANAGER_SUPPORT "Build Slicer extensions manager" ON)

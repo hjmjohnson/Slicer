@@ -141,7 +141,11 @@ QString qSlicerCLIExecutableModuleFactoryItem::runCLIWithXmlArgument()
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert("ITK_AUTOLOAD_PATH", "");
   cli.setProcessEnvironment(env);
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+  cli.startCommand(this->path(), QStringList(QString("--xml")));
+#else
   cli.start(this->path(), QStringList(QString("--xml")));
+#endif
   bool res = cli.waitForFinished(cliProcessTimeoutInMs);
   if (!res)
   {

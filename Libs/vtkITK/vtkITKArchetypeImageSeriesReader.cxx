@@ -837,6 +837,10 @@ int vtkITKArchetypeImageSeriesReader::RequestInformation(vtkInformation* vtkNotU
       }
       else
       {
+        // IEEE‑754 double can exactly represent all integers in the range [–2⁵³, 2⁵³], but beyond that,
+        // only some integer numbers are representable.
+        //  18446744073709551615 (2⁶⁴−1) must be rounded to the nearest representable double: 18446744073709551616
+        constexpr double max_closet_representable = static_cast<double>(std::numeric_limits<uint64_t>::max());
         double min = 0, max = 0;
         for (unsigned int f = 0; f < this->FileNames.size(); f++)
         {
@@ -879,15 +883,14 @@ int vtkITKArchetypeImageSeriesReader::RequestInformation(vtkInformation* vtkNotU
           { // note that on windows ULONG is only 32 bit
             min = static_cast<double>(std::numeric_limits<uint64_t>::min() < min ? std::numeric_limits<uint64_t>::min()
                                                                                  : min);
-            max = static_cast<double>(std::numeric_limits<uint64_t>::max() > max ? std::numeric_limits<uint64_t>::max()
-                                                                                 : max);
+
+            max = static_cast<double>(max_closet_representable > max ? max_closet_representable : max);
           }
           if (imageIO->GetComponentType() == itk::IOComponentEnum::LONG)
           { // note that on windows LONG is only 32 bit
             min = static_cast<double>(std::numeric_limits<int64_t>::min() < min ? std::numeric_limits<int64_t>::min()
                                                                                 : min);
-            max = static_cast<double>(std::numeric_limits<int64_t>::max() > max ? std::numeric_limits<int64_t>::max()
-                                                                                : max);
+            max = static_cast<double>(max_closet_representable > max ? max_closet_representable : max);
           }
           if (imageIO->GetComponentType() == itk::IOComponentEnum::FLOAT)
           {
@@ -951,7 +954,7 @@ int vtkITKArchetypeImageSeriesReader::RequestInformation(vtkInformation* vtkNotU
           {
             scalarType = VTK_INT;
           }
-          else if (max <= std::numeric_limits<int64_t>::max() && min >= std::numeric_limits<int64_t>::min())
+          else if (max <= max_closet_representable && min >= std::numeric_limits<int64_t>::min())
           {
             scalarType = VTK_LONG;
           }

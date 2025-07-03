@@ -176,7 +176,7 @@ QString qSlicerIOManagerPrivate::createUniqueDialogName(qSlicerIO::IOFileType fi
 
   objectName += action == qSlicerFileDialog::Read ? /*no tr*/ "Add" : /*no tr*/ "Save";
   objectName += fileType;
-  objectName += ioProperties["multipleFiles"].toBool() ? "s" : "";
+  objectName += ioProperties.value("multipleFiles").toBool() ? "s" : "";
   objectName += /*no tr*/ "Dialog";
 
   return objectName;
@@ -221,7 +221,7 @@ qSlicerIOManager::~qSlicerIOManager()
 bool qSlicerIOManager::openLoadSceneDialog()
 {
   qSlicerIO::IOProperties properties;
-  properties["clear"] = true;
+  properties.insert("clear", true);
   return this->openDialog(QString("SceneFile"), qSlicerFileDialog::Read, properties);
 }
 
@@ -229,7 +229,7 @@ bool qSlicerIOManager::openLoadSceneDialog()
 bool qSlicerIOManager::openAddSceneDialog()
 {
   qSlicerIO::IOProperties properties;
-  properties["clear"] = false;
+  properties.insert("clear", false);
   return this->openDialog(QString("SceneFile"), qSlicerFileDialog::Read, properties);
 }
 
@@ -241,10 +241,10 @@ bool qSlicerIOManager::openDialog(qSlicerIO::IOFileType fileType,
 {
   Q_D(qSlicerIOManager);
   bool deleteDialog = false;
-  if (properties["objectName"].toString().isEmpty())
+  if (properties.value("objectName").toString().isEmpty())
   {
     QString name = d->createUniqueDialogName(fileType, action, properties);
-    properties["objectName"] = name;
+    properties.insert("objectName", name);
   }
   qSlicerFileDialog* dialog = d->findDialog(fileType, action);
   if (dialog == nullptr)
@@ -471,7 +471,7 @@ bool qSlicerIOManager::loadNodes(const QList<qSlicerIO::IOProperties>& files,
   foreach (qSlicerIO::IOProperties fileProperties, files)
   {
     int numberOfUserMessagesBefore = userMessages ? userMessages->GetNumberOfMessages() : 0;
-    success = this->loadNodes(static_cast<qSlicerIO::IOFileType>(fileProperties["fileType"].toString()),
+    success = this->loadNodes(static_cast<qSlicerIO::IOFileType>(fileProperties.value("fileType").toString()),
                               fileProperties,
                               loadedNodes,
                               userMessages) &&

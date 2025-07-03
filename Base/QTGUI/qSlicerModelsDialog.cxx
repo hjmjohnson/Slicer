@@ -130,7 +130,7 @@ bool qSlicerModelsDialog::exec(const qSlicerIO::IOProperties& readerProperties)
   foreach (QString file, files)
   {
     qSlicerIO::IOProperties properties = readerProperties;
-    properties["fileName"] = file;
+    properties.insert("fileName", file);
     vtkNew<vtkCollection> loadedNodes;
     res = qSlicerCoreApplication::application()->coreIOManager()->loadNodes(
             this->fileType(), properties, loadedNodes.GetPointer()) ||

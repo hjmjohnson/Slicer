@@ -1038,9 +1038,9 @@ bool qSlicerExportNodeDialogPrivate::exportNodes()
     }
 
     // Fill saving parameters with the gathered information
-    savingParameters["nodeID"] = node->GetID();
-    savingParameters["fileName"] = fileInfo.absoluteFilePath();
-    savingParameters["fileFormat"] = nodeTypeWidgetSet->formatText();
+    savingParameters.insert("nodeID", node->GetID());
+    savingParameters.insert("fileName", fileInfo.absoluteFilePath());
+    savingParameters.insert("fileFormat", nodeTypeWidgetSet->formatText());
 
     // sadly, this copies; if we move to Qt6 then this should be emplace_back with a move
     savingParameterMaps.push_back(savingParameters);
@@ -1303,11 +1303,11 @@ bool qSlicerExportNodeDialog::exec(const qSlicerIO::IOProperties& properties)
 
   if (properties.contains("childIdsNonrecursive"))
   {
-    childIdsNonrecursive = properties["childIdsNonrecursive"].toList();
+    childIdsNonrecursive = properties.value("childIdsNonrecursive").toList();
   }
   if (properties.contains("childIdsRecursive"))
   {
-    childIdsRecursive = properties["childIdsRecursive"].toList();
+    childIdsRecursive = properties.value("childIdsRecursive").toList();
   }
 
   // This will remain null if there is no "selectedNodeID", or it will become a pointer to the selected node
@@ -1317,7 +1317,7 @@ bool qSlicerExportNodeDialog::exec(const qSlicerIO::IOProperties& properties)
   QList<vtkMRMLStorableNode*> nodesNonrecursive, nodesRecursive;
   if (properties.contains("selectedNodeID"))
   {
-    QString selectedNodeID = properties["selectedNodeID"].toString();
+    QString selectedNodeID = properties.value("selectedNodeID").toString();
     selectedNode = vtkMRMLStorableNode::SafeDownCast(scene->GetNodeByID(selectedNodeID.toUtf8().constData()));
     if (selectedNode)
     {
@@ -1362,9 +1362,9 @@ bool qSlicerExportNodeDialog::exec(const qSlicerIO::IOProperties& properties)
   // Get the hash map that attributes to each node a subject hierarchy path
   QHash<QString, QVariant> nodeIdToSubjectHierarchyPath;
   if (properties.contains("nodeIdToSubjectHierarchyPath") &&
-      properties["nodeIdToSubjectHierarchyPath"].canConvert<QHash<QString, QVariant>>())
+      properties.value("nodeIdToSubjectHierarchyPath").canConvert<QHash<QString, QVariant>>())
   {
-    nodeIdToSubjectHierarchyPath = properties["nodeIdToSubjectHierarchyPath"].toHash();
+    nodeIdToSubjectHierarchyPath = properties.value("nodeIdToSubjectHierarchyPath").toHash();
   }
   else
   {

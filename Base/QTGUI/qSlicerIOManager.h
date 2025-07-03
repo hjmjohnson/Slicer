@@ -139,7 +139,7 @@ private:
 bool qSlicerIOManager::openAddDataDialog(QString fileName)
 {
   qSlicerIO::IOProperties ioProperties;
-  ioProperties["fileName"] = fileName;
+  ioProperties.insert("fileName", fileName);
   return this->openDialog(QString("NoFile"), qSlicerFileDialog::Read, ioProperties);
 }
 
@@ -159,7 +159,7 @@ bool qSlicerIOManager::openAddVolumeDialog()
 bool qSlicerIOManager::openAddVolumesDialog()
 {
   qSlicerIO::IOProperties ioProperties;
-  ioProperties["multipleFiles"] = true;
+  ioProperties.insert("multipleFiles", true);
   return this->openDialog(QString("VolumeFile"), qSlicerFileDialog::Read, ioProperties);
 }
 

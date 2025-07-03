@@ -115,6 +115,7 @@ void qSlicerSubjectHierarchySegmentsPluginPrivate::init()
   this->CloneSegmentAction = new QAction(qSlicerSubjectHierarchySegmentsPlugin::tr("Clone"), q);
   qSlicerSubjectHierarchyAbstractPlugin::setActionPosition(this->CloneSegmentAction,
                                                            qSlicerSubjectHierarchyAbstractPlugin::SectionNode,
+                                                           0,
                                                            0.5); // put it right after "Rename" action
   QObject::connect(this->CloneSegmentAction, SIGNAL(triggered()), q, SLOT(cloneSegment()));
 

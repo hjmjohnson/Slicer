@@ -1379,3 +1379,5 @@ bool qSlicerSubjectHierarchySegmentationsPlugin::showItemInView(vtkIdType itemID
 
   return qSlicerSubjectHierarchyAbstractPlugin::showItemInView(itemID, viewNode, allItemsToShow);
 }
+
+#include "qSlicerSubjectHierarchySegmentationsPlugin.moc"

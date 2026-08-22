@@ -95,7 +95,27 @@ def __dir__():
 def main(argv):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
+    parser.add_argument(
+        "--dll-directory",
+        action="append",
+        default=[],
+        metavar="DIR",
+        help="Directory to register with os.add_dll_directory() before importing "
+        "VTK. Windows only. Since Python 3.8 the DLLs an extension module depends "
+        "on are resolved only from such registered directories, never from PATH, "
+        "so VTK's external dependencies (TBB, Qt) must be named explicitly. "
+        "May be repeated; non-existent directories are ignored.",
+    )
     arguments = parser.parse_args(argv)
+
+    # vtkmodules/__init__.py registers VTK's own bin/ directory, but nothing
+    # registers the directories of the libraries VTK links against, so
+    # "import vtkmodules.all" would fail with an unhelpful
+    # "DLL load failed while importing vtkCommonCore".
+    if hasattr(os, "add_dll_directory"):
+        for directory in arguments.dll_directory:
+            if os.path.isdir(directory):
+                os.add_dll_directory(directory)
 
     names = module_order()
     if not names:

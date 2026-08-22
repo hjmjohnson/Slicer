@@ -80,12 +80,32 @@ set(_lazy_vtk_pythonpath "")
 if(DEFINED VTK_PYTHONPATH_LAUNCHER_BUILD)
   set(_lazy_vtk_pythonpath ${VTK_PYTHONPATH_LAUNCHER_BUILD})
 endif()
+# On Windows, Python >= 3.8 resolves an extension module's dependent DLLs only
+# from directories registered with os.add_dll_directory(); PATH is ignored.
+# VTK's vtkmodules/__init__.py registers VTK's own bin/ directory, but not the
+# directories of the libraries VTK links against, so "import vtkmodules.all"
+# fails on vtkCommonCore (vtkCommon -> tbb12.dll) and then on vtkRenderingQt
+# (-> Qt6). Name those directories explicitly for the generator script.
+set(_lazy_vtk_dll_directories "")
+if(WIN32)
+  foreach(_lazy_vtk_dll_dir IN LISTS tbb_LIBRARY_PATHS_LAUNCHER_BUILD)
+    list(APPEND _lazy_vtk_dll_directories --dll-directory ${_lazy_vtk_dll_dir})
+  endforeach()
+  foreach(_lazy_vtk_qt_core IN ITEMS Qt6::Core Qt5::Core)
+    if(TARGET ${_lazy_vtk_qt_core})
+      list(APPEND _lazy_vtk_dll_directories
+        --dll-directory $<TARGET_FILE_DIR:${_lazy_vtk_qt_core}>)
+      break()
+    endif()
+  endforeach()
+endif()
 add_custom_command(
   OUTPUT ${_lazy_vtk_module}
   COMMAND ${CMAKE_COMMAND} -E env "PYTHONPATH=${_lazy_vtk_pythonpath}"
     ${PYTHON_EXECUTABLE}
     ${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py
     --output ${_lazy_vtk_module}
+    ${_lazy_vtk_dll_directories}
   DEPENDS ${Slicer_SOURCE_DIR}/Utilities/Scripts/GenerateLazyVtkModule.py
   COMMENT "Generating lazily-loading vtk module"
   VERBATIM

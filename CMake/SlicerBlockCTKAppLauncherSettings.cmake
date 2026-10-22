@@ -130,8 +130,13 @@ endforeach()
 #-----------------------------------------------------------------------------
 set(SLICER_ENVVARS_BUILD
   "SLICER_HOME=${Slicer_BINARY_DIR}" # See note below
-  "ITK_AUTOLOAD_PATH=<APPLAUNCHER_SETTINGS_DIR>/${Slicer_ITKFACTORIES_DIR}/<CMAKE_CFG_INTDIR>"
   )
+if(NOT Slicer_ITK_HAS_OBJECTFACTORY_AUTOLOAD_PATH)
+  # Otherwise qSlicerCoreApplication registers the directory in-process.
+  list(APPEND SLICER_ENVVARS_BUILD
+    "ITK_AUTOLOAD_PATH=<APPLAUNCHER_SETTINGS_DIR>/${Slicer_ITKFACTORIES_DIR}/<CMAKE_CFG_INTDIR>"
+    )
+endif()
 if(Slicer_USE_PYTHONQT)
   list(APPEND SLICER_ENVVARS_BUILD
     "PIP_REQUIRE_VIRTUALENV=0"
@@ -280,8 +285,12 @@ set(SLICER_ENVVARS_INSTALLED
   # SLICER_HOME might already be set on the machine, overwrite it because it
   # could have unwanted side effects
   "SLICER_HOME=<APPLAUNCHER_SETTINGS_DIR>/.."
-  "ITK_AUTOLOAD_PATH=<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_ITKFACTORIES_DIR}"
   )
+if(NOT Slicer_ITK_HAS_OBJECTFACTORY_AUTOLOAD_PATH)
+  list(APPEND SLICER_ENVVARS_INSTALLED
+    "ITK_AUTOLOAD_PATH=<APPLAUNCHER_SETTINGS_DIR>/../${Slicer_ITKFACTORIES_DIR}"
+    )
+endif()
 if(Slicer_USE_PYTHONQT)
   list(APPEND SLICER_ENVVARS_INSTALLED
     "PIP_REQUIRE_VIRTUALENV=0"

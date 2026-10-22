@@ -52,6 +52,7 @@
 #define Slicer_INCLUDE_DIR "@Slicer_INCLUDE_DIR@"
 #define Slicer_SHARE_DIR "@Slicer_SHARE_DIR@"
 #define Slicer_ITKFACTORIES_DIR "@Slicer_ITKFACTORIES_DIR@"
+#cmakedefine Slicer_ITK_HAS_OBJECTFACTORY_AUTOLOAD_PATH
 
 #define Slicer_QtPlugins_DIR "@Slicer_QtPlugins_DIR@"
 

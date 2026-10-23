@@ -1139,6 +1139,11 @@ include(SlicerBlockCXXCoverageFlags)
 include(ITKPlatformSpecificChecks)
 
 #-----------------------------------------------------------------------------
+# Detect the ITK factory autoload-path API
+#-----------------------------------------------------------------------------
+include(SlicerBlockITKAutoloadPathCheck)
+
+#-----------------------------------------------------------------------------
 # Set CMAKE_{C,CXX}_FLAGS variables
 #-----------------------------------------------------------------------------
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_INIT} ${Slicer_REQUIRED_C_FLAGS} ${ITK_REQUIRED_C_FLAGS} ${COVERAGE_C_FLAGS} ${ADDITIONAL_C_FLAGS}" CACHE STRING "CMake C Flags" FORCE)

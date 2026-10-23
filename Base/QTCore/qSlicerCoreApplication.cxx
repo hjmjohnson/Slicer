@@ -97,6 +97,11 @@
 // SlicerLogic includes
 #include "vtkDataIOManagerLogic.h"
 
+#ifdef Slicer_ITK_HAS_OBJECTFACTORY_AUTOLOAD_PATH
+// ITK includes
+# include <itkObjectFactoryBase.h>
+#endif
+
 // MRMLDisplayable includes
 #include <vtkMRMLThreeDViewDisplayableManagerFactory.h>
 #include <vtkMRMLSliceViewDisplayableManagerFactory.h>
@@ -347,6 +352,19 @@ void qSlicerCoreApplicationPrivate::initializeEnvironmentFromLauncher()
     }
     q->setEnvironmentVariable(key, value);
   }
+
+#ifdef Slicer_ITK_HAS_OBJECTFACTORY_AUTOLOAD_PATH
+  // In-process registration keeps the plugins out of ITK_AUTOLOAD_PATH, which
+  // another ITK in this process (e.g. a pip installed itk) would also scan.
+  QString itkFactoriesDir = QDir(this->SlicerHome).filePath(Slicer_ITKFACTORIES_DIR);
+  if (!this->IntDir.isEmpty())
+  {
+    itkFactoriesDir = QDir(itkFactoriesDir).filePath(this->IntDir);
+  }
+  itk::ObjectFactoryBase::SetAutoloadPath(itkFactoriesDir.toStdString());
+  // The factory list may already be initialized; ReHash() re-reads the path.
+  itk::ObjectFactoryBase::ReHash();
+#endif
 
 #ifdef Slicer_USE_PYTHONQT_WITH_OPENSSL
   if (!QSslSocket::supportsSsl())
